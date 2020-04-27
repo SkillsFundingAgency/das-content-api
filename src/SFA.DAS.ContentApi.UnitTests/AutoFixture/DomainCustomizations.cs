@@ -7,7 +7,7 @@ namespace SFA.DAS.ContentApi.UnitTests.AutoFixture
     {
         public DomainCustomizations() : base(
             new AutoMoqCustomization { ConfigureMembers = true },
-            new ProviderDbCustomizations())
+            new ContentDbCustomizations())
         {
         }
     }

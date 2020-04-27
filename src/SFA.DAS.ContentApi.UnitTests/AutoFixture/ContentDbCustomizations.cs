@@ -7,7 +7,7 @@ using SFA.DAS.ContentApi.Data;
 
 namespace SFA.DAS.ContentApi.UnitTests.AutoFixture
 {
-    public class ProviderDbCustomizations : ICustomization
+    public class ContentDbCustomizations : ICustomization
     {
         public void Customize(IFixture fixture)
         {
