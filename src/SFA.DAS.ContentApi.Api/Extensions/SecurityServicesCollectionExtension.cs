@@ -8,7 +8,7 @@ namespace SFA.DAS.ContentApi.Api.Extensions
 {
     public static class SecurityServicesCollectionExtension
     {
-        public static void AddAdAuthentication(this IServiceCollection services, IConfiguration configuration)
+        public static void AddActiveDirectoryAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
             var activeDirectorySettings = configuration.GetSection(ContentApiConfigurationKeys.ActiveDirectorySettings).Get<ActiveDirectorySettings>();
 

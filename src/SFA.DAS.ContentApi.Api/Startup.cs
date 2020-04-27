@@ -24,7 +24,7 @@ namespace SFA.DAS.ContentApi.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAdAuthentication(Configuration);
+            services.AddActiveDirectoryAuthentication(Configuration);
             services.AddMvc(options =>
             {
                 if (!Environment.IsDevelopment())
