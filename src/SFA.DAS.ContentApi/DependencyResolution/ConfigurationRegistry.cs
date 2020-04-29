@@ -12,7 +12,6 @@ namespace SFA.DAS.ContentApi.DependencyResolution
             IncludeRegistry<AutoConfigurationRegistry>();
             AddConfiguration<ActiveDirectorySettings>(ContentApiConfigurationKeys.ActiveDirectorySettings);
             AddConfiguration<ContentApiSettings>(ContentApiConfigurationKeys.ContentApi);
-            AddConfiguration<NServiceBusSettings>(ContentApiConfigurationKeys.NServiceBusSettings);
         }
 
         private void AddConfiguration<T>(string key) where T : class
