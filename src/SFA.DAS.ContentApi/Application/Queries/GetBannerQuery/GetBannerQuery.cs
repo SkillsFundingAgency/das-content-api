@@ -6,9 +6,9 @@ namespace SFA.DAS.ContentApi.Application.Queries.GetBannerQuery
     {
         public GetBannerQuery(bool useLegacyStyles)
         {
-            UseLegacyStyle = useLegacyStyles;
+            UseLegacyStyles = useLegacyStyles;
         }
 
-        public bool UseLegacyStyle { get; set; }
+        public bool UseLegacyStyles { get; set; }
     }
 }

@@ -22,14 +22,14 @@ namespace SFA.DAS.ContentApi.Api.UnitTests.Controllers.BannerControllerUnitTests
             [Frozen] Mock<IMediator> mediator,
             BannerController controller,
             GetBannerQueryResult queryResult,
-            bool useLegacyStyle)
+            bool useLegacyStyles)
         {
             //arrange
-            mediator.Setup(m => m.Send(It.Is<GetBannerQuery>(q => q.UseLegacyStyle == useLegacyStyle), It.IsAny<CancellationToken>()))
+            mediator.Setup(m => m.Send(It.Is<GetBannerQuery>(q => q.UseLegacyStyles == useLegacyStyles), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(queryResult);
 
             //act
-            var result = await controller.Get(useLegacyStyle, new CancellationToken());
+            var result = await controller.Get(useLegacyStyles, new CancellationToken());
 
             //assert
             result.Should().BeOfType<OkObjectResult>()

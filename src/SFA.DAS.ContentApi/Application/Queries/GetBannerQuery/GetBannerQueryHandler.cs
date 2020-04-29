@@ -22,7 +22,7 @@ namespace SFA.DAS.ContentApi.Application.Queries.GetBannerQuery
 
             var banner = new BannerDto
             {
-                Content = request.UseLegacyStyle 
+                Content = request.UseLegacyStyles 
                     ? @"<div class=""info-summary"">
                             <h2 class=""heading-medium"">
                                 Coronavirus (COVID-19): 
