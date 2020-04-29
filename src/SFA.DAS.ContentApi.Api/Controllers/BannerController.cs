@@ -18,9 +18,9 @@ namespace SFA.DAS.ContentApi.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Get(CancellationToken cancellationToken)
+        public async Task<ActionResult> Get(bool useLegacyStyle, CancellationToken cancellationToken)
         {
-            var result = await _mediator.Send(new GetBannerQuery(), cancellationToken);
+            var result = await _mediator.Send(new GetBannerQuery(useLegacyStyle), cancellationToken);
 
             return Ok(result.Banner);
         }
