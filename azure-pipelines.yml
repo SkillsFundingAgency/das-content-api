@@ -63,13 +63,6 @@ steps:
     projects: 'src/SFA.DAS.ContentApi.Api/SFA.DAS.ContentApi.Api.csproj'
     arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)/publish --no-restore --no-build'
 
-- task: CopyFiles@2
-  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
-  inputs:
-    contents: |
-      azure/**
-    targetFolder: '$(build.artifactstagingdirectory)/publish'
-
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact'
   inputs:
@@ -87,6 +80,7 @@ steps:
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
   inputs:
     contents: |
+      azure/**
       src/**/*.dacpac
     targetFolder: '$(build.artifactstagingdirectory)/publish'
   
