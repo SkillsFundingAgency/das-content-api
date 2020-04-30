@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
-using SFA.DAS.ContentApi.Application.Queries.GetBannerQuery;
+using SFA.DAS.ContentApi.Application.Queries.GetContentQuery;
 using SFA.DAS.ContentApi.Data;
 using SFA.DAS.ContentApi.UnitTests.AutoFixture;
 
@@ -10,23 +10,28 @@ namespace SFA.DAS.ContentApi.UnitTests.Application.Queries
 {
     [TestFixture]
     [Parallelizable]
-    class GetBannerQueryHandlerTests
+    class GetContentQueryHandlerTests
     {
         [Test, ContentAutoData]
-        public async Task Handle_WhenHandlingGetBannerQuery_ThenShouldReturnGetBannerQueryResult(
+        public async Task Handle_WhenHandlingGetContentQuery_ThenShouldReturnAContentString(
             ContentApiDbContext setupContext,
-            GetBannerQueryHandler handler,
-            bool useLegacyStyles
+            GetContentQueryHandler handler,
+            string type,
+            string clientId
         )
         {
             //arrange
-            var query = new GetBannerQuery(useLegacyStyles);
+            var query = new GetContentQuery
+            {
+                Type = type,
+                ClientId = clientId
+            };
 
             //act
             var result = await handler.Handle(query, new CancellationToken());
 
             //assert
-            result.Banner.Should().NotBeNull();
+            result.Should().NotBeNull();
         }
     }
 }

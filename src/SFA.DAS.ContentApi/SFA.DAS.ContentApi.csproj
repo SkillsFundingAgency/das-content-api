@@ -25,6 +25,7 @@
     <Folder Include="Application\Commands\" />
     <Folder Include="Mappings\" />
     <Folder Include="Services\" />
+    <Folder Include="Types\" />
   </ItemGroup>
 
 </Project>
