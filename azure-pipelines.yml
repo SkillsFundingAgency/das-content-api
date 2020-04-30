@@ -63,11 +63,6 @@ steps:
     projects: 'src/SFA.DAS.ContentApi.Api/SFA.DAS.ContentApi.Api.csproj'
     arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)/publish --no-restore --no-build'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact'
-  inputs:
-    pathtoPublish: '$(build.artifactstagingdirectory)/publish'
-
 - task: VSBuild@1
   displayName: 'Build DACPAC'
   inputs:
