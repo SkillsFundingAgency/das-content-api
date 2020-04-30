@@ -144,7 +144,7 @@
                     "appServiceAppSettings": {
                         "value": [
                             {
-                                "name": "Environment",
+                                "name": "EnvironmentName",
                                 "value": "[toUpper(parameters('environmentName'))]"
                             },
                             {
