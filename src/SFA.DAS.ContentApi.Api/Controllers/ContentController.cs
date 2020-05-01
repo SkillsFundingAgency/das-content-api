@@ -35,7 +35,8 @@ namespace SFA.DAS.ContentApi.Api.Controllers
                 return BadRequest(ModelState);
             }
 
-            return Content(await _mediator.Send(query, cancellationToken));
+            var result = await _mediator.Send(query, cancellationToken);
+            return Content(result.Content);
         }
     }
 }

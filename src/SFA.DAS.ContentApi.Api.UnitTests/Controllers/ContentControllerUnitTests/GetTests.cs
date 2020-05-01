@@ -20,7 +20,7 @@ namespace SFA.DAS.ContentApi.Api.UnitTests.Controllers.ContentControllerUnitTest
         public async Task WhenValidParametersAreSupplied_ThenShouldReturnContentResult(
             [Frozen] Mock<IMediator> mediator,
             ContentController controller,
-            string content,
+            GetContentQueryResult content,
             string type,
             string clientId)
         {
@@ -39,14 +39,14 @@ namespace SFA.DAS.ContentApi.Api.UnitTests.Controllers.ContentControllerUnitTest
 
             //assert
             result.Should().BeOfType<ContentResult>();
-            ((ContentResult) result).Content.Should().Be(content);
+            ((ContentResult) result).Content.Should().Be(content.Content);
         }
 
         [Test, DomainAutoData]
         public async Task WhenInvalidParametersAreSupplied_ThenShouldReturnBadRequest(
             [Frozen] Mock<IMediator> mediator,
             ContentController controller,
-            string content,
+            GetContentQueryResult content,
             string type,
             string clientId)
         {
