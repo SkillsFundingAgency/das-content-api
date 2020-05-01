@@ -21,7 +21,7 @@ namespace SFA.DAS.ContentApi.Application.Queries.GetContentQuery
 
             switch (request.ClientId)
             {
-                case "acc":
+                case "das-employeraccounts-web":
                 {
                     content = @"<div class=""das-notification"">
                                 <p class=""das-notification__heading govuk-!-margin-bottom-0"">
@@ -35,7 +35,7 @@ namespace SFA.DAS.ContentApi.Application.Queries.GetContentQuery
                     break;
                 }
 
-                case "acc_legacy":
+                case "das-employeraccounts-web-legacy":
                 {
                     content = @"<div class=""info-summary"">
                                 <h2 class=""heading-medium"">
