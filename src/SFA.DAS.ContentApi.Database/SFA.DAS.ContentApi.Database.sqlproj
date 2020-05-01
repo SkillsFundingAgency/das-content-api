@@ -60,4 +60,10 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Content.sql" />
+    <Build Include="Tables\Client.sql" />
+    <Build Include="Tables\ContentType.sql" />
+    <Build Include="Tables\ClientScope.sql" />
+  </ItemGroup>
 </Project>
