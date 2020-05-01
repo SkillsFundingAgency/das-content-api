@@ -41,24 +41,5 @@ namespace SFA.DAS.ContentApi.Api.UnitTests.Controllers.ContentControllerUnitTest
             result.Should().BeOfType<ContentResult>();
             ((ContentResult) result).Content.Should().Be(content.Content);
         }
-
-        [Test, DomainAutoData]
-        public async Task WhenInvalidParametersAreSupplied_ThenShouldReturnBadRequest(
-            [Frozen] Mock<IMediator> mediator,
-            ContentController controller,
-            GetContentQueryResult content,
-            string type,
-            string clientId)
-        {
-            //arrange
-            mediator.Setup(m => m.Send(It.Is<GetContentQuery>(q => q.Type == type && q.ClientId == clientId), It.IsAny<CancellationToken>()))
-                .ReturnsAsync(content);
-
-            //act
-            var result = await controller.Get(new GetContentQuery(), new CancellationToken());
-
-            //assert
-            result.Should().BeOfType<BadRequestObjectResult>();
-        }
     }
 }
