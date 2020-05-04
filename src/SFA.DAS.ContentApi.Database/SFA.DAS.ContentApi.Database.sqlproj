@@ -64,6 +64,6 @@
     <Build Include="Tables\Content.sql" />
     <Build Include="Tables\Client.sql" />
     <Build Include="Tables\ContentType.sql" />
-    <Build Include="Tables\ClientScope.sql" />
+    <Build Include="Tables\ClientContent.sql" />
   </ItemGroup>
 </Project>
