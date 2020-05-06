@@ -22,17 +22,17 @@ namespace SFA.DAS.ContentApi.Api.UnitTests.Controllers.ContentControllerUnitTest
             ContentController controller,
             GetContentQueryResult content,
             string type,
-            string clientId)
+            string applicationId)
         {
             //arrange
-            mediator.Setup(m => m.Send(It.Is<GetContentQuery>(q => q.Type == type && q.ClientId == clientId), It.IsAny<CancellationToken>()))
+            mediator.Setup(m => m.Send(It.Is<GetContentQuery>(q => q.Type == type && q.ApplicationId == applicationId), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(content);
 
             //act
             var query = new GetContentQuery
             {
                 Type = type,
-                ClientId = clientId
+                ApplicationId = applicationId
             };
 
             var result = await controller.Get(query, new CancellationToken());

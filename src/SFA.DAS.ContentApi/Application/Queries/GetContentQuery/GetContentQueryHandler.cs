@@ -19,7 +19,7 @@ namespace SFA.DAS.ContentApi.Application.Queries.GetContentQuery
         {
             var content = string.Empty;
 
-            switch (request.ClientId)
+            switch (request.ApplicationId)
             {
                 case "das-employeraccounts-web":
                 {

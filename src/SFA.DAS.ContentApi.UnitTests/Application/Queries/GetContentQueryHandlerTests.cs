@@ -17,14 +17,14 @@ namespace SFA.DAS.ContentApi.UnitTests.Application.Queries
             ContentApiDbContext setupContext,
             GetContentQueryHandler handler,
             string type,
-            string clientId
+            string applicationId
         )
         {
             //arrange
             var query = new GetContentQuery
             {
                 Type = type,
-                ClientId = clientId
+                ApplicationId = applicationId
             };
 
             //act

@@ -9,6 +9,6 @@ namespace SFA.DAS.ContentApi.Application.Queries.GetContentQuery
         public string Type { get; set; }
 
         [Required]
-        public string ClientId { get; set; }
+        public string ApplicationId { get; set; }
     }
 }
