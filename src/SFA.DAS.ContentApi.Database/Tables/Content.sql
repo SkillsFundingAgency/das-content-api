@@ -2,7 +2,7 @@
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
     [ContentTypeId] INT NOT NULL, 
-    [Content] TEXT NULL, 
+    [Content] VARCHAR(MAX) NULL, 
     [StartDate] DATETIME NOT NULL, 
     [EndDate] DATETIME NOT NULL, 
     [Active] BIT NOT NULL DEFAULT 1, 
