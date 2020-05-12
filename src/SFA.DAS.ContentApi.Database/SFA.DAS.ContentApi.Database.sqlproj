@@ -59,11 +59,16 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\PostDeployment" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Content.sql" />
     <Build Include="Tables\Application.sql" />
     <Build Include="Tables\ContentType.sql" />
     <Build Include="Tables\ApplicationContent.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\PostDeployment\InsertContentTypes.sql" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Content]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [ContentTypeId] INT NOT NULL, 
     [Content] VARCHAR(MAX) NULL, 
     [StartDate] DATETIME NOT NULL, 

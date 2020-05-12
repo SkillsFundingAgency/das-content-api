@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[ApplicationContent]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [ContentId] INT NOT NULL, 
     [ApplicationId] INT NOT NULL,
     CONSTRAINT [FK_ApplicationContent_Content] FOREIGN KEY ([ContentId]) REFERENCES [Content]([Id]),
