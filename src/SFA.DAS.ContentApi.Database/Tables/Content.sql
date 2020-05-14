@@ -1,10 +1,11 @@
 ﻿CREATE TABLE [dbo].[Content]
 (
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [ContentTypeId] INT NOT NULL, 
-    [Content] VARCHAR(MAX) NULL, 
-    [StartDate] DATETIME NOT NULL, 
-    [EndDate] DATETIME NOT NULL, 
-    [Active] BIT NOT NULL DEFAULT 1, 
+	[Id] BIGINT NOT NULL IDENTITY, 
+    [ContentTypeId] BIGINT NOT NULL, 
+    [Data] VARCHAR(MAX) NULL, 
+    [StartDate] DATETIME NULL, 
+    [EndDate] DATETIME NULL, 
+    [Active] BIT NOT NULL DEFAULT 1,
+    CONSTRAINT [PK_Content] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_Content_ContentType] FOREIGN KEY ([ContentTypeId]) REFERENCES [ContentType]([Id])
 )

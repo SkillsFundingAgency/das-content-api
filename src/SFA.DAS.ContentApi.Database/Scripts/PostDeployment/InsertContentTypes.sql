@@ -1,16 +1,4 @@
-﻿/*
-Post-Deployment Script Template							
---------------------------------------------------------------------------------------
- This file contains SQL statements that will be appended to the build script.		
- Use SQLCMD syntax to include a file in the post-deployment script.			
- Example:      :r .\myfile.sql								
- Use SQLCMD syntax to reference a variable in the post-deployment script.		
- Example:      :setvar TableName MyTable							
-               SELECT * FROM [$(TableName)]					
---------------------------------------------------------------------------------------
-*/
-
-SET NOCOUNT ON;
+﻿SET NOCOUNT ON;
 
 PRINT 'Add content type(s) entry';
 
@@ -27,10 +15,11 @@ BEGIN TRY
 		SET IDENTITY_INSERT [dbo].[ContentType] ON
 		INSERT INTO [dbo].[ContentType] ([Id], [Value])	SELECT 1, 'banner'
 		SET IDENTITY_INSERT [dbo].[ContentType] OFF
-
-		COMMIT TRAN;
+		
 		PRINT 'Banner content type entry added';
 	END	
+
+	COMMIT TRAN;
 
 END TRY
 BEGIN CATCH

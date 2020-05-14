@@ -1,9 +1,10 @@
 ﻿CREATE TABLE [dbo].[ApplicationContent]
 (
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [ContentId] INT NOT NULL, 
-    [ApplicationId] INT NOT NULL,
+	[Id] BIGINT NOT NULL IDENTITY, 
+    [ContentId] BIGINT NOT NULL, 
+    [ApplicationId] BIGINT NOT NULL,
+    CONSTRAINT [PK_ApplicationContent] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_ApplicationContent_Content] FOREIGN KEY ([ContentId]) REFERENCES [Content]([Id]),
     CONSTRAINT [FK_ApplicationContent_Application] FOREIGN KEY ([ApplicationId]) REFERENCES [Application]([Id]),
-    CONSTRAINT [UQ_ApplicationContent_ContentApplication] UNIQUE ([ContentId],[ApplicationId])
+    CONSTRAINT [UQ_ApplicationContent_ContentApplication] UNIQUE ([ContentId], [ApplicationId])
 )

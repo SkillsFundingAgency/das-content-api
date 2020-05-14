@@ -1,8 +1,9 @@
 ﻿CREATE TABLE [dbo].[Application]
 (
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Description] VARCHAR(50) NULL, 
-    [Identity] VARCHAR(20) NOT NULL, 
+	[Id] BIGINT NOT NULL IDENTITY, 
+    [Description] VARCHAR(100) NULL, 
+    [Identity] VARCHAR(50) NOT NULL, 
+    CONSTRAINT [PK_Application] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [UQ_Application_Identity] UNIQUE ([Identity])
 )
 
