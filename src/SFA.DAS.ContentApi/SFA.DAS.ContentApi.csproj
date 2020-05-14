@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <Folder Include="Application\Commands\" />
-    <Folder Include="Application\Queries\" />
     <Folder Include="Mappings\" />
     <Folder Include="Services\" />
     <Folder Include="Types\" />
