@@ -31,7 +31,7 @@ namespace SFA.DAS.ContentApi.Application.Queries.GetContentQuery
                 .Select(ac => ac.Content)
                 .FirstOrDefaultAsync(cancellationToken);
 
-            return new GetContentQueryResult(contents != null ? contents.Data : String.Empty);
+            return new GetContentQueryResult(contents != null ? contents.Data : string.Empty);
         }
     }
 }
