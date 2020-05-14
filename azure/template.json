@@ -222,7 +222,7 @@
                         "value": "[parameters('logAnalyticsSubscriptionId')]"
                     },
                     "logAnalyticsResourceGroup": {
-                        "value": "[parameters('SharedManagementResourceGroup')]"
+                        "value": "[parameters('sharedManagementResourceGroup')]"
                     },
                     "logAnalyticsWorkspaceName": {
                         "value": "[parameters('logAnalyticsWorkspaceName')]"
