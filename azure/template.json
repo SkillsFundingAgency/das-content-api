@@ -62,7 +62,7 @@
             "type": "string",
             "defaultValue": "[subscription().subscriptionId]"
         },
-        "logAnalyticsResourceGroup": {
+        "SharedManagementResourceGroup": {
             "type": "string"
         },
         "logAnalyticsWorkspaceName": {
