@@ -6,6 +6,11 @@ namespace SFA.DAS.ContentApi.Data
 {
     public class ContentApiDbContext : DbContext
     {
+        public DbSet<Models.Application> Application { get; set; }
+        public  DbSet<ApplicationContent> ApplicationContent { get; set; }
+        public DbSet<Content> Content { get; set; }
+        public DbSet<ContentType> ContentType { get; set; }
+
         public ContentApiDbContext(DbContextOptions<ContentApiDbContext> options) : base(options)
         {
         }
@@ -21,6 +26,10 @@ namespace SFA.DAS.ContentApi.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new ApplicationConfiguration());
+            modelBuilder.ApplyConfiguration(new ContentConfiguration());
+            modelBuilder.ApplyConfiguration(new ContentTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new ApplicationContentConfiguration());
         }
     }
 }

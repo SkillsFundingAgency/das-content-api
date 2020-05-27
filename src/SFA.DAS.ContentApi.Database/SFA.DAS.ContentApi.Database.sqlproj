@@ -59,5 +59,19 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\PostDeployment" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Content.sql" />
+    <Build Include="Tables\Application.sql" />
+    <Build Include="Tables\ContentType.sql" />
+    <Build Include="Tables\ApplicationContent.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\PostDeployment\InsertContentTypes.sql" />
+    <None Include="Scripts\PostDeployment\InsertApplications.sql" />
+    <PostDeploy Include="Scripts\PostDeployment\PostDeployment.sql" />
+    <None Include="Scripts\PostDeployment\Covid19Banner.sql" />
   </ItemGroup>
 </Project>
