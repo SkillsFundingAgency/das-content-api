@@ -66,13 +66,13 @@
     <Build Include="Tables\Content.sql" />
     <Build Include="Tables\Application.sql" />
     <Build Include="Tables\ContentType.sql" />
-    <Build Include="Tables\ApplicationContent.sql" />
-    <None Include="Scripts\PostDeployment\UpdateCovidBanner.sql" />
+    <Build Include="Tables\ApplicationContent.sql" />    
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\PostDeployment\InsertContentTypes.sql" />
     <None Include="Scripts\PostDeployment\InsertApplications.sql" />
     <PostDeploy Include="Scripts\PostDeployment\PostDeployment.sql" />
     <None Include="Scripts\PostDeployment\Covid19Banner.sql" />
+    <None Include="Scripts\PostDeployment\UpdateCovidBanner.sql" />
   </ItemGroup>
 </Project>
