@@ -47,7 +47,7 @@ BEGIN TRY
 	BEGIN
 		SET IDENTITY_INSERT [dbo].[Content] ON
 		INSERT INTO [dbo].[Content] ([Id], [ContentTypeId], [Data])
-		SELECT 3, 1, '<div class="info-summary" tabindex="-1"><span class="heading-small">Coronavirus (COVID-19): <a href="https://www.gov.uk/government/publications/coronavirus-covid-19-apprenticeship-programme-response/coronavirus-covid-19-guidance-for-apprentices-employers-training-providers-end-point-assessment-organisations-and-external-quality-assurance-pro" target="_blank">read our guidance</a> on the changes we''re making to help apprentices continue learning or <a href="https://help.apprenticeships.education.gov.uk/hc/en-gb/articles/360009509360-Pause-or-stop-an-apprenticeship" target="_blank">find out how employers can pause apprenticeships</a>.</span></div>'		
+		SELECT 3, 1, '  <div class="info-summary" tabindex="-1"><span class="heading-small">Coronavirus (COVID-19): to find out how we can support you, including changes we''re making to help your apprentices continue learning, <a  href="https://www.gov.uk/government/publications/coronavirus-covid-19-apprenticeship-programme-response?es_c=7B651DDC6B6986102E8BBB7918A20DDF&es_cl=53BFD9FD1669BCDAEBD12D5CDF1D9AB8&es_id=9d%c2%a3o3C" target="_blank">read our updated guidance</a>.</span></div>'		
 		SET IDENTITY_INSERT [dbo].[Content] OFF
 		
 		SET IDENTITY_INSERT [dbo].[ApplicationContent] ON
@@ -61,7 +61,7 @@ BEGIN TRY
 	BEGIN
 		SET IDENTITY_INSERT [dbo].[Content] ON
 		INSERT INTO [dbo].[Content] ([Id], [ContentTypeId], [Data])
-		SELECT 4, 1, '<div class="info-summary" tabindex="-1"><span class="heading-small">Coronavirus (COVID-19): <a href="https://www.gov.uk/government/publications/coronavirus-covid-19-apprenticeship-programme-response/coronavirus-covid-19-guidance-for-apprentices-employers-training-providers-end-point-assessment-organisations-and-external-quality-assurance-pro" target="_blank">read our guidance</a> on the changes we''re making to help apprentices continue learning or <a href="https://help.apprenticeships.education.gov.uk/hc/en-gb/articles/360009509360-Pause-or-stop-an-apprenticeship" target="_blank">find out how employers can pause apprenticeships</a>.</span></div>'		
+		SELECT 4, 1, '  <div class="info-summary" tabindex="-1"><span class="heading-small">Coronavirus (COVID-19): to find out how we can support you, including changes we''re making to help your apprentices continue learning, <a  href="https://www.gov.uk/government/publications/coronavirus-covid-19-apprenticeship-programme-response?es_c=7B651DDC6B6986102E8BBB7918A20DDF&es_cl=53BFD9FD1669BCDAEBD12D5CDF1D9AB8&es_id=9d%c2%a3o3C" target="_blank">read our updated guidance</a>.</span></div>'
 		SET IDENTITY_INSERT [dbo].[Content] OFF
 		
 		SET IDENTITY_INSERT [dbo].[ApplicationContent] ON
