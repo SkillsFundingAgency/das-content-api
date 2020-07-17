@@ -26,6 +26,24 @@ BEGIN TRY
 		SET IDENTITY_INSERT [dbo].[Application] OFF
 
 		PRINT 'Employer Apprenticeship Service (Legacy) application entry added';
+	END
+
+	IF NOT EXISTS(SELECT ID FROM [dbo].[Application] WHERE Id = 3)
+	BEGIN
+		SET IDENTITY_INSERT [dbo].[Application] ON
+		INSERT INTO [dbo].[Application] ([Id], [Description], [Identity]) SELECT 3, 'Provider Apprenticeship Service', 'das-providerapprenticeshipsservice-web'
+		SET IDENTITY_INSERT [dbo].[Application] OFF
+
+		PRINT 'Provider Apprenticeship Service application entry added';
+	END
+	
+	IF NOT EXISTS(SELECT ID FROM [dbo].[Application] WHERE Id = 4)
+	BEGIN
+		SET IDENTITY_INSERT [dbo].[Application] ON
+		INSERT INTO [dbo].[Application] ([Id], [Description], [Identity]) SELECT 4, 'Provider Apprenticeship Service (Legacy)', 'das-providerapprenticeshipsservice-web-legacy'
+		SET IDENTITY_INSERT [dbo].[Application] OFF
+
+		PRINT 'Provider Apprenticeship Service (Legacy) application entry added';
 	END	
 	
 	COMMIT TRAN;
