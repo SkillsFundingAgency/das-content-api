@@ -14,9 +14,10 @@ namespace SFA.DAS.ContentApi.Api.Extensions
 
             services.AddAuthorization(o =>
             {
-                o.AddPolicy("default", policy =>
+                o.AddPolicy(PolicyNames.Default, policy =>
                 {
                     policy.RequireAuthenticatedUser();
+                    policy.RequireRole(RoleNames.Default);
                 });
             });
 
