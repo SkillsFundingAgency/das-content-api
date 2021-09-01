@@ -1,5 +1,4 @@
 ﻿SET NOCOUNT ON;
-GO
 
 PRINT 'Update Covid 19 banner entry (for Legacy) with Email notice';
 
