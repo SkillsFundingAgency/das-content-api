@@ -67,7 +67,7 @@
     <Build Include="Tables\Application.sql" />
     <Build Include="Tables\ContentType.sql" />
     <Build Include="Tables\ApplicationContent.sql" />
-    <Build Include="Scripts\PostDeployment\UpdateCovid19BannerWithApprenticeEmail.sql" />
+    <None Include="Scripts\PostDeployment\UpdateCovid19BannerWithApprenticeEmail.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\PostDeployment\InsertContentTypes.sql" />
