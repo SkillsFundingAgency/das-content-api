@@ -20,7 +20,7 @@ BEGIN TRY
 
             <div class="govuk-notification-banner__content">
                 <p class="govuk-notification-banner__heading">
-                    From 9 September, you or the training provider must add a unique email address for each apprentice you add. The apprentice will then receive an email invitation to create a ''My apprenticeship'' account.
+                    From 9 September, you or the employer must add a unique email address for each apprentice you add. The apprentice will then receive an email invitation to create a ''My apprenticeship'' account.
                 </p>
             </div>
         </div>'
