@@ -59,7 +59,7 @@ namespace SFA.DAS.ContentApi.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseLazyLoadingProxies();
+            //optionsBuilder.UseLazyLoadingProxies();
 
             if (_configuration == null || _azureServiceTokenProvider == null)
             {
