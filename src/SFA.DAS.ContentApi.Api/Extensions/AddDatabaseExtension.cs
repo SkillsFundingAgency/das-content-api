@@ -2,6 +2,7 @@
 using System.Data;
 using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SFA.DAS.ContentApi.Configuration;
@@ -25,9 +26,15 @@ namespace SFA.DAS.ContentApi.Api.Extensions
                 //services.AddDbContext<ContentApiDbContext>(options => options.UseSqlServer(databaseConnectionString), ServiceLifetime.Transient);
                 services.AddDbContext<ContentApiDbContext>(ServiceLifetime.Transient);
             }
+
+            var optionsBuilder = new DbContextOptionsBuilder<ContentApiDbContext>();
+             //.UseSqlServer(databaseConnectionString)
+             //.ConfigureWarnings(w => w.Throw(RelationalEventId.QueryClientEvaluationWarning));
             
-            services.AddTransient<IContentApiDbContextFactory, DbContextWithNewTransactionFactory>(c => c.GetService<DbContextWithNewTransactionFactory>());
-            services.AddTransient(c => new Lazy<ContentApiDbContext>(c.GetService<ContentApiDbContext>()));
+            var dbContext = new ContentApiDbContext(configuration, optionsBuilder.Options, new AzureServiceTokenProvider());
+
+            //services.AddTransient<IContentApiDbContextFactory, DbContextWithNewTransactionFactory>(c => c.GetService<DbContextWithNewTransactionFactory>());            
+            //services.AddTransient(c => new Lazy<ContentApiDbContext>(c.GetService<ContentApiDbContext>()));
         }
     }
 }

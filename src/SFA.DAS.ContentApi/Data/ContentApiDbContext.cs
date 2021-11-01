@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using SFA.DAS.ContentApi.Configuration;
 using SFA.DAS.ContentApi.Models;
@@ -11,13 +14,16 @@ namespace SFA.DAS.ContentApi.Data
 {
     public class ContentApiDbContext : DbContext
     {
+        //private readonly IDbConnection _connection;
+
+
         private const string AzureResource = "https://database.windows.net/";
         public DbSet<Models.Application> Application { get; set; }
         public  DbSet<ApplicationContent> ApplicationContent { get; set; }
         public DbSet<Content> Content { get; set; }
         public DbSet<ContentType> ContentType { get; set; }
 
-        private readonly ContentApiSettings _configuration;
+        private readonly IConfiguration _configuration;
         private readonly AzureServiceTokenProvider _azureServiceTokenProvider;
 
         public ContentApiDbContext(DbContextOptions<ContentApiDbContext> options) : base(options)
@@ -28,20 +34,32 @@ namespace SFA.DAS.ContentApi.Data
         {
         }
 
+        //public ContentApiDbContext(IDbConnection connection, DbContextOptions<ContentApiDbContext> options)
+        //: base(options)
+        //{
+        //    _connection = connection;
+        //}
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(_connection as DbConnection, options =>
+        //         options.EnableRetryOnFailure(3));
+        //}
+
         public virtual Task ExecuteSqlCommandAsync(string sql, params object[] parameters)
         {
             return Database.ExecuteSqlCommandAsync(sql, parameters);
         }
 
-        public ContentApiDbContext(IOptions<ContentApiSettings> config, DbContextOptions options, AzureServiceTokenProvider azureServiceTokenProvider) : base(options)
+        public ContentApiDbContext(IConfiguration config, DbContextOptions options, AzureServiceTokenProvider azureServiceTokenProvider) : base(options)
         {
-            _configuration = config.Value;
+            _configuration = config;
             _azureServiceTokenProvider = azureServiceTokenProvider;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseLazyLoadingProxies();
+            optionsBuilder.UseLazyLoadingProxies();
 
             if (_configuration == null || _azureServiceTokenProvider == null)
             {
@@ -50,7 +68,7 @@ namespace SFA.DAS.ContentApi.Data
 
             var connection = new SqlConnection
             {
-                ConnectionString = _configuration.DatabaseConnectionString,
+                ConnectionString = _configuration.GetSection(ContentApiConfigurationKeys.ContentApi).Get<ContentApiSettings>().DatabaseConnectionString,
                 AccessToken = _azureServiceTokenProvider.GetAccessTokenAsync(AzureResource).Result,
             };
 
