@@ -35,7 +35,7 @@ namespace SFA.DAS.ContentApi.Api
 
             services.AddDasDistributedMemoryCache(Configuration, Environment.IsDevelopment());
 
-            services.AddDatabaseRegistration(Configuration, !Environment.IsDevelopment());
+            services.AddDatabaseRegistration(Configuration, Environment.IsDevelopment());
 
             services.AddMemoryCache();
             services.AddHealthChecks();
