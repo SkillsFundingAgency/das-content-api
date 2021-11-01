@@ -34,6 +34,9 @@ namespace SFA.DAS.ContentApi.Api
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDasDistributedMemoryCache(Configuration, Environment.IsDevelopment());
+
+            services.AddDatabaseRegistration(Configuration, !Environment.IsDevelopment());
+
             services.AddMemoryCache();
             services.AddHealthChecks();
             services.AddApplicationInsightsTelemetry();
