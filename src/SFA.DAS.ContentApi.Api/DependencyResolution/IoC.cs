@@ -9,7 +9,6 @@ namespace SFA.DAS.ContentApi.Api.DependencyResolution
         {
             registry.IncludeRegistry<ConfigurationRegistry>();
             registry.IncludeRegistry<MediatorRegistry>(); 
-            //registry.IncludeRegistry<DataRegistry>();
             registry.IncludeRegistry<MapperRegistry>();
             registry.IncludeRegistry<DefaultRegistry>();
         }

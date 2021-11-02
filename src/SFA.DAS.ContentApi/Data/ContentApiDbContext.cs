@@ -1,22 +1,16 @@
 ﻿using System;
-using System.Data;
-using System.Data.Common;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 using SFA.DAS.ContentApi.Configuration;
 using SFA.DAS.ContentApi.Models;
 
 namespace SFA.DAS.ContentApi.Data
 {
     public class ContentApiDbContext : DbContext
-    {
-        //private readonly IDbConnection _connection;
-
-
+    {  
         private const string AzureResource = "https://database.windows.net/";
         public DbSet<Models.Application> Application { get; set; }
         public  DbSet<ApplicationContent> ApplicationContent { get; set; }
@@ -32,35 +26,21 @@ namespace SFA.DAS.ContentApi.Data
 
         protected ContentApiDbContext()
         {
-        }
-
-        //public ContentApiDbContext(IDbConnection connection, DbContextOptions<ContentApiDbContext> options)
-        //: base(options)
-        //{
-        //    _connection = connection;
-        //}
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(_connection as DbConnection, options =>
-        //         options.EnableRetryOnFailure(3));
-        //}
+        }       
 
         public virtual Task ExecuteSqlCommandAsync(string sql, params object[] parameters)
         {
             return Database.ExecuteSqlCommandAsync(sql, parameters);
         }
 
-        public ContentApiDbContext(IConfiguration config, DbContextOptions options, AzureServiceTokenProvider azureServiceTokenProvider) : base(options)
+        public ContentApiDbContext(IConfiguration configuration, DbContextOptions options, AzureServiceTokenProvider azureServiceTokenProvider) : base(options)
         {
-            _configuration = config;
+            _configuration = configuration;
             _azureServiceTokenProvider = azureServiceTokenProvider;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseLazyLoadingProxies();
-
             if (_configuration == null || _azureServiceTokenProvider == null)
             {
                 return;
@@ -78,9 +58,7 @@ namespace SFA.DAS.ContentApi.Data
                      TimeSpan.FromSeconds(20),
                      null
                  ));
-
         }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

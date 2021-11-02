@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Data;
 using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SFA.DAS.ContentApi.Configuration;
@@ -22,19 +20,12 @@ namespace SFA.DAS.ContentApi.Api.Extensions
             }
             else
             {
-                services.AddSingleton(new AzureServiceTokenProvider());
-                //services.AddDbContext<ContentApiDbContext>(options => options.UseSqlServer(databaseConnectionString), ServiceLifetime.Transient);
+                services.AddSingleton(new AzureServiceTokenProvider());                
                 services.AddDbContext<ContentApiDbContext>(ServiceLifetime.Transient);
             }
 
-            var optionsBuilder = new DbContextOptionsBuilder<ContentApiDbContext>();
-             //.UseSqlServer(databaseConnectionString)
-             //.ConfigureWarnings(w => w.Throw(RelationalEventId.QueryClientEvaluationWarning));
-            
-            var dbContext = new ContentApiDbContext(configuration, optionsBuilder.Options, new AzureServiceTokenProvider());
-
-            //services.AddTransient<IContentApiDbContextFactory, DbContextWithNewTransactionFactory>(c => c.GetService<DbContextWithNewTransactionFactory>());            
-            //services.AddTransient(c => new Lazy<ContentApiDbContext>(c.GetService<ContentApiDbContext>()));
+            services.AddTransient<IContentApiDbContextFactory, DbContextWithNewTransactionFactory>(c => c.GetService<DbContextWithNewTransactionFactory>());
+            services.AddTransient(c => new Lazy<ContentApiDbContext>(c.GetService<ContentApiDbContext>()));
         }
     }
 }
