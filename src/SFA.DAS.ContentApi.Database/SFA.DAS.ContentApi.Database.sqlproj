@@ -61,22 +61,22 @@
     <Folder Include="Tables" />
     <Folder Include="Scripts" />
     <Folder Include="Scripts\PostDeployment" />
+    <Folder Include="Scripts\Archive" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Content.sql" />
     <Build Include="Tables\Application.sql" />
     <Build Include="Tables\ContentType.sql" />
     <Build Include="Tables\ApplicationContent.sql" />
-    <None Include="Scripts\PostDeployment\UpdateCovid19BannerWithApprenticeEmail.sql" />
+    <None Include="Scripts\Archive\UpdateCovid19Banner.sql" />
+    <None Include="Scripts\Archive\UpdateCovid19BannerWithApprenticeEmail.sql" />
+    <None Include="Scripts\Archive\UpdateCovid19BannerWithEmployerIncentives.sql" />
+    <None Include="Scripts\PostDeployment\UpdateCovid19BannerWithEmployerIncentives_2.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\PostDeployment\InsertContentTypes.sql" />
     <None Include="Scripts\PostDeployment\InsertApplications.sql" />
     <PostDeploy Include="Scripts\PostDeployment\PostDeployment.sql" />
     <None Include="Scripts\PostDeployment\Covid19Banner.sql" />
-    <None Include="Scripts\PostDeployment\UpdateCovid19Banner.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Scripts\PostDeployment\UpdateCovid19BannerWithEmployerIncentives.sql" />
   </ItemGroup>
 </Project>
