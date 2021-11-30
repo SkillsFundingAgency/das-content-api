@@ -11,8 +11,8 @@ BEGIN TRY
 			<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Important</h2>
 		</div>
 		<div class="govuk-notification-banner__content">
-			<p class="govuk-notification-banner__heading">Applications open on 11 January 2022</p>
-			<p class="govuk-body">For apprentices with an employment start date from 1 October 2021 to 31 January 2022, applications open on 11 January 2022 and close on 15 May 2022.</p>
+			<p class="govuk-notification-banner__heading">Applications for the hire a new apprentice payment open on 11 January 2022</p>
+			<p class="govuk-body">For apprentices with an employment start date from 1 October 2021 to 31 January 2022, applications for the incentive payment open on 11 January 2022 and close on 15 May 2022.</p>
 			<p class="govuk-body">They must also have an apprenticeship start date from 1 October 2021 to 31 March 2022.</p>
 		</div>
 		<div class="govuk-notification-banner__content">
@@ -30,8 +30,8 @@ BEGIN TRY
 			<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Important</h2>
 		</div>
 		<div class="govuk-notification-banner__content">
-			<p class="govuk-notification-banner__heading">Applications open on 11 January 2022</p>
-			<p class="govuk-body">For apprentices with an employment start date from 1 October 2021 to 31 January 2022, applications open on 11 January 2022 and close on 15 May 2022.</p>
+			<p class="govuk-notification-banner__heading">Applications for the hire a new apprentice payment open on 11 January 2022</p>
+			<p class="govuk-body">For apprentices with an employment start date from 1 October 2021 to 31 January 2022, applications for the incentive payment open on 11 January 2022 and close on 15 May 2022.</p>
 			<p class="govuk-body">They must also have an apprenticeship start date from 1 October 2021 to 31 March 2022.</p>
 		</div>
 		<div class="govuk-notification-banner__content">
