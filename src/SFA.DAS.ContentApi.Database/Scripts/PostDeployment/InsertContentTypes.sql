@@ -19,6 +19,15 @@ BEGIN TRY
 		PRINT 'Banner content type entry added';
 	END	
 
+	IF NOT EXISTS(SELECT ID FROM [dbo].[ContentType] WHERE Id = 2)
+	BEGIN
+		SET IDENTITY_INSERT [dbo].[ContentType] ON
+		INSERT INTO [dbo].[ContentType] ([Id], [Value])	SELECT 2, 'covid_section'
+		SET IDENTITY_INSERT [dbo].[ContentType] OFF
+		
+		PRINT 'covid_section content type entry added';
+	END	
+
 	COMMIT TRAN;
 
 END TRY

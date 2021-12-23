@@ -71,8 +71,10 @@
     <None Include="Scripts\Archive\UpdateCovid19Banner.sql" />
     <None Include="Scripts\Archive\UpdateCovid19BannerWithApprenticeEmail.sql" />
     <None Include="Scripts\Archive\UpdateCovid19BannerWithEmployerIncentives.sql" />
-    <None Include="Scripts\PostDeployment\UpdateCovid19BannerWithEmployerIncentives_3.sql" />
+    <None Include="Scripts\PostDeployment\UpdateCovid19BannerWithEmployerIncentives_4.sql" />
     <None Include="Scripts\Archive\UpdateCovid19BannerWithEmployerIncentives_2.sql" />
+    <None Include="Scripts\Archive\UpdateCovid19BannerWithEmployerIncentives_3.sql" />
+    <None Include="Scripts\PostDeployment\InsertCovidSection.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\PostDeployment\InsertContentTypes.sql" />
