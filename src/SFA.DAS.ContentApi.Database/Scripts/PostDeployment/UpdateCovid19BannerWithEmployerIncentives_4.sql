@@ -1,6 +1,6 @@
 ﻿SET NOCOUNT ON;
 
-PRINT 'Update Covid 19 banner entry with employer incentives closing dates';
+PRINT 'Update banner entry with employer incentives closing dates';
 
 BEGIN TRAN;
 BEGIN TRY

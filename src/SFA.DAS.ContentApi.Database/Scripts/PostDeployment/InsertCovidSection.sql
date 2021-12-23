@@ -1,18 +1,18 @@
 ﻿SET NOCOUNT ON;
 
-PRINT 'Add Covid 19 banner entry';
+PRINT 'Add Covid 19 content entry';
 
 BEGIN TRAN;
 BEGIN TRY
 
 	IF OBJECT_ID('dbo.Content') IS NULL
 	BEGIN;
-		THROW 50000, 'The banner could not be added as the dbo.Content table does not exist', 1;
+		THROW 50000, 'The covid content could not be added as the dbo.Content table does not exist', 1;
 	END;
 
 	IF OBJECT_ID('dbo.ApplicationContent') IS NULL
 	BEGIN;
-		THROW 50000, 'The banner could not be added as the dbo.ApplicationContent table does not exist', 1;
+		THROW 50000, 'The Covid 19 content could not be added as the dbo.ApplicationContent table does not exist', 1;
 	END;
 
 	IF NOT EXISTS(SELECT ID FROM [dbo].[Content] WHERE Id = 5)
@@ -33,7 +33,7 @@ BEGIN TRY
 		INSERT INTO [dbo].[ApplicationContent] ([Id], [ApplicationId], [ContentId]) SELECT 5, 1, 5
 		SET IDENTITY_INSERT [dbo].[ApplicationContent] OFF
 
-		PRINT 'Covid 19 text entry added';
+		PRINT 'Covid 19 section entry added';
 	END	
 
 	IF NOT EXISTS(SELECT ID FROM [dbo].[Content] WHERE Id = 6)
@@ -54,7 +54,7 @@ BEGIN TRY
 		INSERT INTO [dbo].[ApplicationContent] ([Id], [ApplicationId], [ContentId]) SELECT 6, 2, 6
 		SET IDENTITY_INSERT [dbo].[ApplicationContent] OFF
 
-		PRINT 'Covid 19 text legacy banner entry added';
+		PRINT 'Covid 19 section legacy banner entry added';
 	END
     
 	
