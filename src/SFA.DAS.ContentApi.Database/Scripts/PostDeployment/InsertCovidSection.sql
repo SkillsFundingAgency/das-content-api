@@ -25,7 +25,7 @@ BEGIN TRY
                         <h2 class="section-heading heading-large">Coronavirus (COVID-19)</h2>
                     </div>
                 </div>
-                <p>To find out how we can support you, including changes we’re making to help your apprentices continue learning, <a href="https://www.gov.uk/government/publications/coronavirus-covid-19-apprenticeship-programme-response">read our updated guidance.</a></p>
+                <p>To find out how we can support you, including changes we’re making to help your apprentices continue learning, <a href="https://www.gov.uk/government/publications/coronavirus-covid-19-apprenticeship-programme-response" target="_blank">read our updated guidance</a>.</p>
             </section>'		
 		SET IDENTITY_INSERT [dbo].[Content] OFF
 		
@@ -46,7 +46,7 @@ BEGIN TRY
                         <h2 class="section-heading heading-large">Coronavirus (COVID-19)</h2>
                     </div>
                 </div>
-                <p>To find out how we can support you, including changes we’re making to help your apprentices continue learning, <a href="https://www.gov.uk/government/publications/coronavirus-covid-19-apprenticeship-programme-response">read our updated guidance.</a></p>
+                <p>To find out how we can support you, including changes we’re making to help your apprentices continue learning, <a href="https://www.gov.uk/government/publications/coronavirus-covid-19-apprenticeship-programme-response" target="_blank">read our updated guidance</a>.</p>
             </section>'
 		SET IDENTITY_INSERT [dbo].[Content] OFF
 		
