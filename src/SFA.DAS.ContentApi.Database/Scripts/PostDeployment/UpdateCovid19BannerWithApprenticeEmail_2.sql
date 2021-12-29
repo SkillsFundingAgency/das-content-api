@@ -1,0 +1,35 @@
+﻿SET NOCOUNT ON;
+
+PRINT 'Update Covid 19 banner entry (for Legacy) with Email notice';
+
+BEGIN TRAN;
+BEGIN TRY
+	UPDATE [dbo].[Content]
+	SET [Data]= '<p></p>
+        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+                <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                    Important
+                </h2>
+            </div>          
+            <div class="govuk-notification-banner__content">
+                <p class="govuk-notification-banner__heading">
+                    From 9 September, you or the employer must add a unique email address for each apprentice you add. The apprentice will then receive an email invitation to create a ''My apprenticeship'' account.
+                </p>
+            </div>
+        </div>'
+	WHERE [Id] = 4			
+COMMIT TRAN;
+
+END TRY
+BEGIN CATCH
+	
+	PRINT Error_message();
+	PRINT 'Covid 19 entry update with email NOT updated see above error';
+	PRINT 'Rolling back transaction';
+	
+	ROLLBACK TRAN;
+
+	THROW;
+
+END CATCH;
