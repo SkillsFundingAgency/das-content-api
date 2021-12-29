@@ -80,5 +80,6 @@
     <None Include="Scripts\PostDeployment\InsertApplications.sql" />
     <PostDeploy Include="Scripts\PostDeployment\PostDeployment.sql" />
     <None Include="Scripts\PostDeployment\Covid19Banner.sql" />
+    <None Include="Scripts\PostDeployment\InsertCovidSectionPAS.sql" />
   </ItemGroup>
 </Project>
