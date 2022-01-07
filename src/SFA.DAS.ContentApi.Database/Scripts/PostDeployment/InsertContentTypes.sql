@@ -24,7 +24,7 @@ BEGIN TRY
 		SET IDENTITY_INSERT [dbo].[ContentType] ON
 		INSERT INTO [dbo].[ContentType] ([Id], [Value])	SELECT 2, 'covid_section'
 		SET IDENTITY_INSERT [dbo].[ContentType] OFF
-		
+
 		PRINT 'Covid Section content type entry added';
 	END	
 
