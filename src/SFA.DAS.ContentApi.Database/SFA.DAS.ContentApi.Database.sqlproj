@@ -77,6 +77,7 @@
     <None Include="Scripts\PostDeployment\InsertCovidSection.sql" />
     <None Include="Scripts\PostDeployment\UpdateCovid19BannerWithApprenticeEmail_2.sql" />
     <None Include="Scripts\PostDeployment\RemovePASBanner.sql" />
+    <None Include="Scripts\PostDeployment\UpdateBannerWithEmployerIncentives_5.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\PostDeployment\InsertContentTypes.sql" />
