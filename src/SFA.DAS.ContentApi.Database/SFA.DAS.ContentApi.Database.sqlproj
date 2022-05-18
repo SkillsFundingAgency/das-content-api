@@ -71,19 +71,27 @@
     <None Include="Scripts\Archive\UpdateCovid19Banner.sql" />
     <None Include="Scripts\Archive\UpdateCovid19BannerWithApprenticeEmail.sql" />
     <None Include="Scripts\Archive\UpdateCovid19BannerWithEmployerIncentives.sql" />
-    <None Include="Scripts\PostDeployment\UpdateBannerWithEmployerIncentives_4.sql" />
     <None Include="Scripts\Archive\UpdateCovid19BannerWithEmployerIncentives_2.sql" />
     <None Include="Scripts\Archive\UpdateCovid19BannerWithEmployerIncentives_3.sql" />
-    <None Include="Scripts\PostDeployment\InsertCovidSection.sql" />
-    <None Include="Scripts\PostDeployment\UpdateCovid19BannerWithApprenticeEmail_2.sql" />
-    <None Include="Scripts\PostDeployment\RemovePASBanner.sql" />
-    <None Include="Scripts\PostDeployment\UpdateBannerWithEmployerIncentives_5.sql" />
+    <None Include="Scripts\PostDeployment\InsertOrUpdateApplication.sql" />
+    <None Include="Scripts\PostDeployment\InsertOrUpdateContentType.sql" />
+    <None Include="Scripts\PostDeployment\InsertOrUpdateApplicationContent.sql" />
+    <None Include="Scripts\PostDeployment\InsertOrUpdateContent.sql" />
+    <None Include="Scripts\PostDeployment\DeleteContentType.sql" />
+    <None Include="Scripts\PostDeployment\DeleteContent.sql" />
+    <None Include="Scripts\Archive\Covid19Banner.sql" />
+    <None Include="Scripts\Archive\RemovePASBanner.sql" />
+    <None Include="Scripts\Archive\UpdateBannerWithEmployerIncentives_4.sql" />
+    <None Include="Scripts\Archive\UpdateBannerWithEmployerIncentives_5.sql" />
+    <None Include="Scripts\Archive\UpdateCovid19BannerWithApprenticeEmail_2.sql" />
+    <None Include="Scripts\Archive\InsertApplications.sql" />
+    <None Include="Scripts\Archive\InsertContentTypes.sql" />
+    <None Include="Scripts\Archive\InsertCovidSection.sql" />
+    <None Include="Scripts\Archive\InsertCovidSectionPAS.sql" />
+    <None Include="Scripts\PostDeployment\DeleteApplicationContent.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scripts\PostDeployment\InsertContentTypes.sql" />
-    <None Include="Scripts\PostDeployment\InsertApplications.sql" />
     <PostDeploy Include="Scripts\PostDeployment\PostDeployment.sql" />
-    <None Include="Scripts\PostDeployment\Covid19Banner.sql" />
-    <None Include="Scripts\PostDeployment\InsertCovidSectionPAS.sql" />
+    <None Include="Scripts\PostDeployment\DeleteApplication.sql" />
   </ItemGroup>
 </Project>

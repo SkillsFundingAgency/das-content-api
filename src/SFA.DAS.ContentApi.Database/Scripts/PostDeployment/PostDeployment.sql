@@ -1,9 +1,13 @@
-﻿:r .\InsertContentTypes.sql
-:r .\InsertApplications.sql
-:r .\Covid19Banner.sql
-:r .\UpdateBannerWithEmployerIncentives_5.sql
-:r .\InsertCovidSection.sql
-:r .\UpdateCovid19BannerWithApprenticeEmail_2.sql
-:r .\InsertCovidSectionPAS.sql
-:r .\RemovePASBanner.sql
+﻿BEGIN TRANSACTION
 
+:r .\DeleteApplicationContent.sql
+:r .\DeleteApplication.sql
+:r .\DeleteContent.sql
+:r .\DeleteContentType.sql
+
+:r .\InsertOrUpdateApplication.sql
+:r .\InsertOrUpdateContentType.sql
+:r .\InsertOrUpdateContent.sql
+:r .\InsertOrUpdateApplicationContent.sql
+
+COMMIT TRANSACTION
