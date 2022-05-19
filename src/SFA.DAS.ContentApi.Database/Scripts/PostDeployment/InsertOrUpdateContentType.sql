@@ -1,5 +1,5 @@
 ﻿/*
-	Insert or Update each of the [ContentTypes] values.
+	Insert or Update each of the [ContentType] values.
 
 	NOTES:
 

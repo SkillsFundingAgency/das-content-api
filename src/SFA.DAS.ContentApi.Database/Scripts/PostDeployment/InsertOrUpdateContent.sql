@@ -7,7 +7,7 @@
 	not take affect (by design); values which are removed should also be written into the DeleteContent.sql script to remove
 	manually any dependencies, but they must also be removed from the temporary table.
 
-    2) It is recommend that content is set Active = 0 when not require to preserve the formatting markup in the script
+    2) It is recommended that content is set Active = 0 when not required to preserve the formatting markup in the script
 */
 CREATE TABLE #Content(
 	[Id] BIGINT NOT NULL, 
