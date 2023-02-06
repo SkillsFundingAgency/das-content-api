@@ -22,7 +22,7 @@ BEGIN TRY
                 <p class="govuk-notification-banner__heading">
                     National Apprenticeship Week: 6 to 12 February 2023
                 </p>
-                <p>Time to celebrate apprenticeships. <a href="https://naw.appawards.co.uk/" target="_blank">Get involved with National Apprenticeship Week</a>.</p>
+                <p>Time to celebrate apprenticeships. Get involved with <a href="https://naw.appawards.co.uk/" target="_blank">National Apprenticeship Week</a>.</p>
             </div>
         </div>'
 		SET IDENTITY_INSERT [dbo].[Content] OFF
@@ -48,7 +48,7 @@ BEGIN TRY
                 <p class="govuk-notification-banner__heading">
                     National Apprenticeship Week: 6 to 12 February 2023
                 </p>
-                <p>Time to celebrate apprenticeships. <a href="https://naw.appawards.co.uk/" target="_blank">Get involved with National Apprenticeship Week</a>.</p>
+                <p>Time to celebrate apprenticeships. Get involved with <a href="https://naw.appawards.co.uk/" target="_blank">National Apprenticeship Week</a>.</p>
             </div>
         </div>', Active = 1
 	WHERE [Id] = 4
