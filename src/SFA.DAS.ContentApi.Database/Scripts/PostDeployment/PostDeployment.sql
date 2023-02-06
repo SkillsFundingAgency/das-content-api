@@ -10,4 +10,6 @@
 :r .\InsertOrUpdateContent.sql
 :r .\InsertOrUpdateApplicationContent.sql
 
+:r .\NAW_Banner_2023.sql
+
 COMMIT TRANSACTION
