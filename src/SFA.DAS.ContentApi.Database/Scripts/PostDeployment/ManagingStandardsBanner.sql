@@ -18,8 +18,8 @@ BEGIN TRY
                 </p>
             </div>
         </div>'
-	WHERE [Id] = 4	
-    AND Active = 1
+        , Active = 1
+	WHERE [Id] = 4
 COMMIT TRAN;
 
 END TRY
