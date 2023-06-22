@@ -79,6 +79,15 @@ INSERT #Content VALUES (8, 2, '<div class="grid-row">
         <p>To find out how we can support you, including changes we''re making to help your apprentices continue learning, <a href="https://www.gov.uk/government/publications/coronavirus-covid-19-apprenticeship-programme-response?es_c=7B651DDC6B6986102E8BBB7918A20DDF&es_cl=53BFD9FD1669BCDAEBD12D5CDF1D9AB8&es_id=9d%c2%a3o3C" target="_blank">read our updated guidance</a>.</p>
     </div>
 </div>', NULL, NULL, 1)
+    
+INSERT #Content VALUES (9, 2, '<div class="grid-row">
+<div class="column-two-thirds">
+    <hr />
+    <h3 class="heading-medium">From 3rd July, you will need a GOV.UK One Login to access this service.</h3>
+    <p>You’ll automatically be directed to create a GOV.UK One Login when you sign in after this date. When you create your GOV.UK One Login, you must use the same email address you currently use for this account.</p>
+    <p>If you can’t access the email address connected to this account, you’ll need to change your email address before 3rd July.</p>
+</div>
+</div>', NULL, datefromparts(2023,7,3), 1)
 
 SET IDENTITY_INSERT [dbo].[Content] ON 
 
