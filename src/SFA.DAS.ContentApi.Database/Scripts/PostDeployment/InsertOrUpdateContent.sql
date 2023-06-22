@@ -80,7 +80,7 @@ INSERT #Content VALUES (8, 2, '<div class="grid-row">
     </div>
 </div>', NULL, NULL, 1)
     
-INSERT #Content VALUES (9, 2, '<div class="grid-row">
+INSERT #Content VALUES (9, 1, '<div class="grid-row">
 <div class="column-two-thirds">
     <hr />
     <h3 class="heading-medium">From 3rd July, you will need a GOV.UK One Login to access this service.</h3>
