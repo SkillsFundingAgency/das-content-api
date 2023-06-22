@@ -93,7 +93,7 @@ INSERT #Content VALUES (9, 1,
         <p class="govuk-body">You’ll automatically be directed to create a GOV.UK One Login when you sign in after this date. When you create your GOV.UK One Login, you must use the same email address you currently use for this account.</p>
         <p class="govuk-body">If you can’t access the email address connected to this account, you’ll need to change your account’s email address before 3rd July. You can change your email address in your account settings.</p>
     </div>
-</div>'   , NULL, datefromparts(2023,7,3), 1)
+</div>'   , NULL, null, 1)
 
 SET IDENTITY_INSERT [dbo].[Content] ON 
 
