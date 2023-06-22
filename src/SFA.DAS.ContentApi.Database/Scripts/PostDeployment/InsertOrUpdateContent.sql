@@ -85,7 +85,7 @@ INSERT #Content VALUES (9, 2, '<div class="grid-row">
     <hr />
     <h3 class="heading-medium">From 3rd July, you will need a GOV.UK One Login to access this service.</h3>
     <p>You’ll automatically be directed to create a GOV.UK One Login when you sign in after this date. When you create your GOV.UK One Login, you must use the same email address you currently use for this account.</p>
-    <p>If you can’t access the email address connected to this account, you’ll need to change your email address before 3rd July.</p>
+    <p>If you can’t access the email address connected to this account, you’ll need to change your account’s email address before 3rd July. You can change your email address in your account settings.</p>
 </div>
 </div>', NULL, datefromparts(2023,7,3), 1)
 
