@@ -80,9 +80,6 @@ INSERT #Content VALUES (8, 2, '<div class="grid-row">
     </div>
 </div>', NULL, NULL, 1)
     
-    
- 
-    
 INSERT #Content VALUES (9, 1,
     '<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
     <div class="govuk-notification-banner__header">
@@ -92,6 +89,20 @@ INSERT #Content VALUES (9, 1,
         <p class="govuk-notification-banner__heading">From 3rd July, you will need a GOV.UK One Login to access this service.</p>
         <p class="govuk-body">You’ll automatically be directed to create a GOV.UK One Login when you sign in after this date. When you create your GOV.UK One Login, you must use the same email address you currently use for this account.</p>
         <p class="govuk-body">If you can’t access the email address connected to this account, you’ll need to change your account’s email address before 3rd July. You can change your email address in your account settings.</p>
+    </div>
+</div>'   , NULL, null, 0)    
+ 
+    
+INSERT #Content VALUES (10, 1,
+    '<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Important</h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">This service will switch to GOV.UK One Login soon.</p>
+        <p class="govuk-body">After the switch, you’ll automatically be directed to create a GOV.UK One Login. You must create your GOV.UK One Login with the same email address you currently use for this account.</p>
+        <p class="govuk-body">If you can’t access the email address linked to this account, you need to change your email address in your account settings.</p>
+        <p class="govuk-body">A date for the switch to GOV.UK One Login will be announced soon.</p>
     </div>
 </div>'   , NULL, null, 1)
 

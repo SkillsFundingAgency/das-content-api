@@ -22,6 +22,7 @@ INSERT #ApplicationContent VALUES (6, 6, 2)
 INSERT #ApplicationContent VALUES (7, 7, 3)
 INSERT #ApplicationContent VALUES (8, 8, 4)
 INSERT #ApplicationContent VALUES (9, 9, 1)
+INSERT #ApplicationContent VALUES (10, 10, 1)
 
 SET IDENTITY_INSERT [dbo].[ApplicationContent] ON 
 
