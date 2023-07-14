@@ -104,7 +104,7 @@ INSERT #Content VALUES (10, 1,
         <p class="govuk-body">If you can’t access the email address linked to this account, you need to change your email address in your account settings.</p>
         <p class="govuk-body">A date for the switch to GOV.UK One Login will be announced soon.</p>
     </div>
-</div>'   , NULL, null, 1)
+</div>'   , NULL, null, 0)
 
 SET IDENTITY_INSERT [dbo].[Content] ON 
 
