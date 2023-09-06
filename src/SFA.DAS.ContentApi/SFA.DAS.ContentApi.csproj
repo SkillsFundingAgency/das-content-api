@@ -6,6 +6,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Application\Commands\**" />
+    <Compile Remove="Mappings\**" />
+    <Compile Remove="Services\**" />
+    <Compile Remove="Types\**" />
+    <EmbeddedResource Remove="Application\Commands\**" />
+    <EmbeddedResource Remove="Mappings\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <EmbeddedResource Remove="Types\**" />
+    <None Remove="Application\Commands\**" />
+    <None Remove="Mappings\**" />
+    <None Remove="Services\**" />
+    <None Remove="Types\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="MediatR" Version="7.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
@@ -19,13 +34,6 @@
     <PackageReference Include="SFA.DAS.UnitOfWork" Version="9.0.13" />
     <PackageReference Include="SFA.DAS.UnitOfWork.NServiceBus" Version="9.0.13" />
     <PackageReference Include="System.Linq.Dynamic.Core" Version="1.0.19" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Application\Commands\" />
-    <Folder Include="Mappings\" />
-    <Folder Include="Services\" />
-    <Folder Include="Types\" />
   </ItemGroup>
 
 </Project>
