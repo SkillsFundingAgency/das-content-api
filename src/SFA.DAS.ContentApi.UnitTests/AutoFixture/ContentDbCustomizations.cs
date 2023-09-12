@@ -27,7 +27,7 @@ namespace SFA.DAS.ContentApi.UnitTests.AutoFixture
         {
             return new ContentApiDbContext(
                     new DbContextOptionsBuilder<ContentApiDbContext>().
-                    UseInMemoryDatabase(databaseGuid.ToString()).ConfigureWarnings(warnings => warnings.Throw(RelationalEventId.QueryClientEvaluationWarning)).Options);
+                    UseInMemoryDatabase(databaseGuid.ToString()).Options);
         }
     }
 }

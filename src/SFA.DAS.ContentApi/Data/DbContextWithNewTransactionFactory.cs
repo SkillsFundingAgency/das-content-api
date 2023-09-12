@@ -22,8 +22,7 @@ namespace SFA.DAS.ContentApi.Data
         public ContentApiDbContext CreateDbContext()
         {
             var optionsBuilder = new DbContextOptionsBuilder<ContentApiDbContext>()
-                .UseSqlServer(_dbConnection)
-                .ConfigureWarnings(w => w.Throw(RelationalEventId.QueryClientEvaluationWarning));
+                .UseSqlServer(_dbConnection);
 
             if (_environmentService.IsCurrent(DasEnv.LOCAL))
             {

@@ -27,8 +27,7 @@ namespace SFA.DAS.ContentApi.Data
             var sqlStorageSession = synchronizedStorageSession.GetSqlStorageSession();
 
             var optionsBuilder = new DbContextOptionsBuilder<ContentApiDbContext>()
-                .UseSqlServer(sqlStorageSession.Connection)
-                .ConfigureWarnings(w => w.Throw(RelationalEventId.QueryClientEvaluationWarning));
+                .UseSqlServer(sqlStorageSession.Connection);
 
             if (_environmentService.IsCurrent(DasEnv.LOCAL))
             {
