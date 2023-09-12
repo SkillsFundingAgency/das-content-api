@@ -4,11 +4,15 @@
 
 ## Setting up
 
+* [Configuring the Settings](#connection-strings)
+* [Deploy Local Database](#deploy-local-database)
+* [Running](#running)
+
 Ensure either [Azure Storage Emulator](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-emulator) or [Azurite](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite) is installed and running, the application will retrieve the config strings from there. 
 
 _For macos/Linux use Azurite with Docker Hub_
 
-### Connection Strings 
+### Connection Strings
 
 Using [Azure Storage Explorer](https://azure.microsoft.com/en-gb/products/storage/storage-explorer), ensure under `Storage Accounts` - `Emulator` - `Tables` that there is a table named `Configuration`, open it. 
 
@@ -33,7 +37,7 @@ Ensure that there is a valid connection string to an accessible SQL Server DB, f
 
 `Data Source=[Database Server Name];Database=SFA.DAS.ContentApi.Database;Integrated Security = true;Trusted_Connection=True;Pooling=False;Connect Timeout=30;MultipleActiveResultSets=True;ConnectRetryCount=3;ConnectRetryInterval=2`
 
-### Deploy Local Database 
+### Deploy Local Database
 
 Using Visual Studio, right click on the `SFA.DAS.ContentAPI.Database` project and click `Publish`. 
 
@@ -53,7 +57,7 @@ Then set the database server name in the above connection string in the storage 
 
 `Data Source=(localdb)\\MSSQLLocalDB;Database=SFA.DAS.ContentApi.Database;Integrated Security = true;Trusted_Connection=True;Pooling=False;Connect Timeout=30;MultipleActiveResultSets=True;ConnectRetryCount=3;ConnectRetryInterval=2`
 
-### Running 
+### Running
 
 Set the startup project as `SFA.DAS.ContentApi.Api` and run under Kestrel.
 This should open up a browser to `https://localhost:5001` and show a Swagger API page where the endpoints can be tested. 
