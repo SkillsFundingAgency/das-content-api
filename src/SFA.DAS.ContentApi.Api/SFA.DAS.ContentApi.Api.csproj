@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationInsightsResourceId>/subscriptions/68208b91-0105-498e-a1bc-40d75596c01a/resourceGroups/das-at-content-rg/providers/microsoft.insights/components/das-at-contentapi-as</ApplicationInsightsResourceId>
   </PropertyGroup>
 
   <ItemGroup>
