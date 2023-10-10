@@ -10,6 +10,6 @@
 :r .\InsertOrUpdateContent.sql
 :r .\InsertOrUpdateApplicationContent.sql
 
-:r .\ManagingStandardsBanner.sql
+:r .\R14Banner.sql
 
 COMMIT TRANSACTION
