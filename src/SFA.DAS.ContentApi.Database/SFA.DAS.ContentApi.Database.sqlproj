@@ -89,7 +89,7 @@
     <None Include="Scripts\Archive\InsertCovidSectionPAS.sql" />
     <None Include="Scripts\PostDeployment\DeleteApplicationContent.sql" />
     <None Include="Scripts\Archive\NAW_Banner_2023.sql" />
-    <None Include="Scripts\PostDeployment\R14Banner.sql" />
+    <None Include="Scripts\Archive\R14Banner.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\PostDeployment\PostDeployment.sql" />
