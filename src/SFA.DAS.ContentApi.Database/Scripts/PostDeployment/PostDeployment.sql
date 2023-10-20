@@ -10,4 +10,6 @@
 :r .\InsertOrUpdateContent.sql
 :r .\InsertOrUpdateApplicationContent.sql
 
+:r .\EmployerServiceDowntime.sql
+
 COMMIT TRANSACTION
