@@ -17,6 +17,7 @@ BEGIN TRY
                 </h2>
             </div>          
             <div class="govuk-notification-banner__content">
+            <h2>Planned maintenance downtime</h2>
                 <p class="govuk-body">
                     Please note that the Manage Apprenticeships website will be unavailable for all users on <b>31/10/23 between 7am and 9am</b> due to essential maintenance work. We apologise for any inconvenience this may cause.                
 				</p>
