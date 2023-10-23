@@ -5,7 +5,21 @@ PRINT 'Update Employer Agreement service downtime banner 19/10';
 BEGIN TRAN;
 BEGIN TRY
 	UPDATE [dbo].[Content]
-	SET Active = 0
+	SET [Data]= '<p></p>
+        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+                <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                    Important notice
+                </h2>
+            </div>          
+            <div class="govuk-notification-banner__content">
+            <h2>Planned maintenance downtime</h2>
+                <p class="govuk-body">
+                    Please note that the Manage Apprenticeships website will be unavailable for all users on <b>31/10/23 between 7am and 9am</b> due to essential maintenance work. We apologise for any inconvenience this may cause.                
+				</p>
+            </div>
+        </div>'
+        , Active = 1
 	WHERE [Id] = 1;
 
     UPDATE [dbo].[Content]
