@@ -1,4 +1,6 @@
-﻿PRINT 'Update Employer Agreement service downtime banner 19/10';
+﻿SET NOCOUNT ON;
+
+PRINT 'Update Employer Agreement service downtime banner 19/10';
 
 BEGIN TRAN;
 BEGIN TRY
