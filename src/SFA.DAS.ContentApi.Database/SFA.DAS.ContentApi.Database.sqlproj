@@ -60,14 +60,13 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Scripts" />
-    <Folder Include="Scripts\PostDeployment" />
-    <Folder Include="Scripts\Archive" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Content.sql" />
     <Build Include="Tables\Application.sql" />
     <Build Include="Tables\ContentType.sql" />
     <Build Include="Tables\ApplicationContent.sql" />
+    <None Include="Scripts\Archive\ManagingStandardsBanner.sql" />
     <None Include="Scripts\Archive\UpdateCovid19Banner.sql" />
     <None Include="Scripts\Archive\UpdateCovid19BannerWithApprenticeEmail.sql" />
     <None Include="Scripts\Archive\UpdateCovid19BannerWithEmployerIncentives.sql" />
@@ -90,7 +89,8 @@
     <None Include="Scripts\Archive\InsertCovidSectionPAS.sql" />
     <None Include="Scripts\PostDeployment\DeleteApplicationContent.sql" />
     <None Include="Scripts\Archive\NAW_Banner_2023.sql" />
-    <None Include="Scripts\PostDeployment\ManagingStandardsBanner.sql" />
+    <None Include="Scripts\Archive\R14Banner.sql" />
+    <None Include="Scripts\Archive\EmployerServiceDowntime.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\PostDeployment\PostDeployment.sql" />
