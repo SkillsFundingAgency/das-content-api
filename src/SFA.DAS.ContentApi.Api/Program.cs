@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using NLog.Web;
 using SFA.DAS.Configuration.AzureTableStorage;
+using SFA.DAS.ContentApi.Api;
 using SFA.DAS.ContentApi.Configuration;
 using StructureMap.AspNetCore;
 

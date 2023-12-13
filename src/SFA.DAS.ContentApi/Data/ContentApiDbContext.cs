@@ -30,7 +30,7 @@ namespace SFA.DAS.ContentApi.Data
 
         public virtual Task ExecuteSqlCommandAsync(string sql, params object[] parameters)
         {
-            return Database.ExecuteSqlCommandAsync(sql, parameters);
+            return Database.ExecuteSqlRawAsync(sql, parameters);
         }
 
         public ContentApiDbContext(IConfiguration configuration, DbContextOptions options, AzureServiceTokenProvider azureServiceTokenProvider) : base(options)

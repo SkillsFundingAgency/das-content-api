@@ -15,12 +15,12 @@ namespace SFA.DAS.ContentApi.Api.Extensions
             var databaseConnectionString = configuration.GetSection(ContentApiConfigurationKeys.ContentApi).Get<ContentApiSettings>().DatabaseConnectionString;
 
             if (isDevelopment)
-            {   
+            {
                 services.AddDbContext<ContentApiDbContext>(options => options.UseSqlServer(databaseConnectionString), ServiceLifetime.Transient);
             }
             else
             {
-                services.AddSingleton(new AzureServiceTokenProvider());                
+                services.AddSingleton(new AzureServiceTokenProvider());
                 services.AddDbContext<ContentApiDbContext>(ServiceLifetime.Transient);
             }
 

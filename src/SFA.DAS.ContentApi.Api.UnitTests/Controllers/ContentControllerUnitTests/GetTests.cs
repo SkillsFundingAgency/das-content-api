@@ -19,7 +19,7 @@ namespace SFA.DAS.ContentApi.Api.UnitTests.Controllers.ContentControllerUnitTest
         [Test, DomainAutoData]
         public async Task WhenValidParametersAreSupplied_ThenShouldReturnContentResult(
             [Frozen] Mock<IMediator> mediator,
-            ContentController controller,
+            [NoAutoProperties] ContentController controller,
             GetContentQueryResult content,
             string type,
             string applicationId)

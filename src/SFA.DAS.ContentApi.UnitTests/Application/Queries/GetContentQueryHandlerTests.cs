@@ -5,6 +5,13 @@ using NUnit.Framework;
 using SFA.DAS.ContentApi.Application.Queries.GetContentQuery;
 using SFA.DAS.ContentApi.Data;
 using SFA.DAS.ContentApi.UnitTests.AutoFixture;
+using System;
+using AutoFixture;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using SFA.DAS.ContentApi.Models;
+
 
 namespace SFA.DAS.ContentApi.UnitTests.Application.Queries
 {
