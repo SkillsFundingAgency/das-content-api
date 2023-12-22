@@ -62,6 +62,7 @@
     <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
+    <Build Include="Scripts\PostDeployment\NAW_Banner_2024.sql" />
     <Build Include="Tables\Content.sql" />
     <Build Include="Tables\Application.sql" />
     <Build Include="Tables\ContentType.sql" />
