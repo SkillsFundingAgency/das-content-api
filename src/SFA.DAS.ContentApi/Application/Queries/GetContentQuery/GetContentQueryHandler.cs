@@ -21,8 +21,8 @@ namespace SFA.DAS.ContentApi.Application.Queries.GetContentQuery
                 .Where(ac => 
                     ac.Content.ContentType.Value == request.Type.ToLower() &&
                     ac.Content.Active &&
-                    (!ac.Content.StartDate.HasValue || ac.Content.StartDate.Value > DateTime.Now) &&
-                    (!ac.Content.EndDate.HasValue || ac.Content.EndDate.Value < DateTime.Now))
+                    (!ac.Content.StartDate.HasValue || ac.Content.StartDate.Value < DateTime.Now) &&
+                    (!ac.Content.EndDate.HasValue || ac.Content.EndDate.Value > DateTime.Now))
                 .OrderByDescending(a => a.ContentId)
                 .Select(ac => ac.Content)
                 .FirstOrDefaultAsync(cancellationToken);
