@@ -144,6 +144,34 @@ namespace SFA.DAS.ContentApi.UnitTests.Application.Queries
             result.Should().NotBeNull();
             result.Content.Should().Be(htmlData);
         }
+        
+        [Test, ContentAutoData]
+        public async Task Handle_WhenHandlingGetContentQuery_ThenShouldReturnEmptyContent_ForInactiveContent_EvenWithinDates(
+            ContentApiDbContext setupContext,
+            GetContentQueryHandler handler,
+            string type,
+            string applicationIdentity
+        )
+        {
+            //arrange
+            var htmlData = "<h1>a banner</h1>";
+            var startDate = DateTime.Now.AddDays(-1);
+            var endDate = DateTime.Now.AddDays(1);
+            await SetupApplicationContent(setupContext, applicationIdentity, type, isActive: true, htmlData, startDate, endDate);
+
+            var query = new GetContentQuery
+            {
+                Type = type,
+                ApplicationId = applicationIdentity
+            };
+
+            //act
+            var result = await handler.Handle(query, new CancellationToken());
+
+            //assert
+            result.Should().NotBeNull();
+            result.Content.Should().Be(string.Empty);
+        }
 
         private static async Task SetupApplicationContent(
             ContentApiDbContext setupContext,
