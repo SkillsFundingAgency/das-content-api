@@ -1,8 +1,6 @@
-﻿using System;
-using AutoFixture;
+﻿using AutoFixture;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using SFA.DAS.ContentApi.Data;
 
 namespace SFA.DAS.ContentApi.UnitTests.AutoFixture

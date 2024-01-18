@@ -1,16 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Authorization;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using SFA.DAS.ContentApi.Api.DependencyResolution;
+﻿using SFA.DAS.ContentApi.Api.DependencyResolution;
 using SFA.DAS.ContentApi.Api.Extensions;
 using SFA.DAS.ContentApi.Extensions;
 using StructureMap;
-using MediatR;
 using System.Reflection;
-using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.OpenApi.Models;
 
 namespace SFA.DAS.ContentApi.Api
