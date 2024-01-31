@@ -1,5 +1,4 @@
-﻿using System;
-using SFA.DAS.UnitOfWork.Context;
+﻿using SFA.DAS.UnitOfWork.Context;
 
 namespace SFA.DAS.ContentApi.Models
 {

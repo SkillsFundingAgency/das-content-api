@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using StructureMap;
 
 namespace SFA.DAS.ContentApi.DependencyResolution

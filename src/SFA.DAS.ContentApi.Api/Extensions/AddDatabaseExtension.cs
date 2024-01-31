@@ -1,8 +1,5 @@
-﻿using System;
-using Microsoft.Azure.Services.AppAuthentication;
+﻿using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using SFA.DAS.ContentApi.Configuration;
 using SFA.DAS.ContentApi.Data;
 

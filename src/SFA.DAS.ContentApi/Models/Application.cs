@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SFA.DAS.ContentApi.Models
+﻿namespace SFA.DAS.ContentApi.Models
 {
     public class Application : Entity
     {
