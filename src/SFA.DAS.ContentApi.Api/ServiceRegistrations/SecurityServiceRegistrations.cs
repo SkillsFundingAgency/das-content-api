@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using SFA.DAS.ContentApi.Configuration;
 
-namespace SFA.DAS.ContentApi.Api.Extensions;
+namespace SFA.DAS.ContentApi.Api.ServiceRegistrations;
 
-public static class SecurityServicesCollectionExtension
+public static class SecurityServiceRegistrations
 {
     public static void AddActiveDirectoryAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
         var activeDirectorySettings = configuration.GetSection(ContentApiConfigurationKeys.ActiveDirectorySettings).Get<ActiveDirectorySettings>();
 
-        services.AddAuthorization(o =>
+        services.AddAuthorization(options =>
         {
-            o.AddPolicy("default", policy =>
+            options.AddPolicy("default", policy =>
             {
                 policy.RequireAuthenticatedUser();
                 policy.RequireRole("Default");

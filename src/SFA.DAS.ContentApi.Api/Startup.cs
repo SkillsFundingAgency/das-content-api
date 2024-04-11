@@ -1,10 +1,8 @@
-﻿using System.Reflection;
-using Microsoft.Extensions.Logging.ApplicationInsights;
+﻿using Microsoft.Extensions.Logging.ApplicationInsights;
 using Microsoft.OpenApi.Models;
 using SFA.DAS.ContentApi.Api.Extensions;
 using SFA.DAS.ContentApi.Api.ServiceRegistrations;
 using SFA.DAS.ContentApi.Application.Queries.GetContentQuery;
-using SFA.DAS.ContentApi.Data;
 using SFA.DAS.ContentApi.Extensions;
 
 namespace SFA.DAS.ContentApi.Api;
