@@ -8,36 +8,35 @@ using SFA.DAS.ContentApi.Api.Controllers;
 using SFA.DAS.ContentApi.Api.UnitTests.AutoFixture;
 using SFA.DAS.ContentApi.Application.Queries.GetContentQuery;
 
-namespace SFA.DAS.ContentApi.Api.UnitTests.Controllers.ContentControllerUnitTests
+namespace SFA.DAS.ContentApi.Api.UnitTests.Controllers.ContentControllerUnitTests;
+
+[TestFixture]
+[Parallelizable]
+public class GetTests
 {
-    [TestFixture]
-    [Parallelizable]
-    public class GetTests
+    [Test, DomainAutoData]
+    public async Task WhenValidParametersAreSupplied_ThenShouldReturnContentResult(
+        [Frozen] Mock<IMediator> mediator,
+        [NoAutoProperties] ContentController controller,
+        GetContentQueryResult content,
+        string type,
+        string applicationId)
     {
-        [Test, DomainAutoData]
-        public async Task WhenValidParametersAreSupplied_ThenShouldReturnContentResult(
-            [Frozen] Mock<IMediator> mediator,
-            [NoAutoProperties] ContentController controller,
-            GetContentQueryResult content,
-            string type,
-            string applicationId)
+        //arrange
+        mediator.Setup(m => m.Send(It.Is<GetContentQuery>(q => q.Type == type && q.ApplicationId == applicationId), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(content);
+
+        //act
+        var query = new GetContentQuery
         {
-            //arrange
-            mediator.Setup(m => m.Send(It.Is<GetContentQuery>(q => q.Type == type && q.ApplicationId == applicationId), It.IsAny<CancellationToken>()))
-                .ReturnsAsync(content);
+            Type = type,
+            ApplicationId = applicationId
+        };
 
-            //act
-            var query = new GetContentQuery
-            {
-                Type = type,
-                ApplicationId = applicationId
-            };
+        var result = await controller.Get(query, new CancellationToken());
 
-            var result = await controller.Get(query, new CancellationToken());
-
-            //assert
-            result.Should().BeOfType<ContentResult>();
-            ((ContentResult) result).Content.Should().Be(content.Content);
-        }
+        //assert
+        result.Should().BeOfType<ContentResult>();
+        ((ContentResult) result).Content.Should().Be(content.Content);
     }
 }
