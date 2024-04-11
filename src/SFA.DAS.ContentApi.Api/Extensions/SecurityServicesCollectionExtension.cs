@@ -1,34 +1,33 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using SFA.DAS.ContentApi.Configuration;
 
-namespace SFA.DAS.ContentApi.Api.Extensions
+namespace SFA.DAS.ContentApi.Api.Extensions;
+
+public static class SecurityServicesCollectionExtension
 {
-    public static class SecurityServicesCollectionExtension
+    public static void AddActiveDirectoryAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
-        public static void AddActiveDirectoryAuthentication(this IServiceCollection services, IConfiguration configuration)
+        var activeDirectorySettings = configuration.GetSection(ContentApiConfigurationKeys.ActiveDirectorySettings).Get<ActiveDirectorySettings>();
+
+        services.AddAuthorization(o =>
         {
-            var activeDirectorySettings = configuration.GetSection(ContentApiConfigurationKeys.ActiveDirectorySettings).Get<ActiveDirectorySettings>();
-
-            services.AddAuthorization(o =>
+            o.AddPolicy("default", policy =>
             {
-                o.AddPolicy("default", policy =>
-                {
-                    policy.RequireAuthenticatedUser();
-                    policy.RequireRole("Default");
-                });
+                policy.RequireAuthenticatedUser();
+                policy.RequireRole("Default");
             });
+        });
 
-            services.AddAuthentication(auth =>
+        services.AddAuthentication(auth =>
+        {
+            auth.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+        }).AddJwtBearer(auth =>
+        {
+            auth.Authority = $"https://login.microsoftonline.com/{activeDirectorySettings.Tenant}";
+            auth.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
             {
-                auth.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(auth =>
-            {
-                auth.Authority = $"https://login.microsoftonline.com/{activeDirectorySettings.Tenant}";
-                auth.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-                {
-                    ValidAudiences = activeDirectorySettings.IdentifierUri.Split(','),
-                };
-            });
-        }
+                ValidAudiences = activeDirectorySettings.IdentifierUri.Split(','),
+            };
+        });
     }
 }
