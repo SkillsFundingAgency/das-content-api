@@ -9,9 +9,9 @@ namespace SFA.DAS.ContentApi.Api;
 public class Startup
 {
     private readonly IConfiguration _configuration;
-    private readonly IWebHostEnvironment _environment;
-    
-    public Startup(IConfiguration configuration, IWebHostEnvironment environment)
+    private readonly IHostEnvironment _environment;
+
+    public Startup(IConfiguration configuration, IHostEnvironment environment)
     {
         _configuration = configuration;
         _environment = environment;
@@ -26,7 +26,7 @@ public class Startup
         services.AddConfigurationOptions(_configuration);
 
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
-        
+
         services.AddDasDistributedMemoryCache(_configuration, _environment.IsDevelopment());
 
         services.AddDatabaseRegistration(_configuration, _environment.IsDevelopment());
@@ -45,7 +45,7 @@ public class Startup
         services.AddApplicationInsightsTelemetry();
     }
 
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    public void Configure(IApplicationBuilder app, IHostEnvironment env)
     {
         if (env.IsDevelopment())
         {

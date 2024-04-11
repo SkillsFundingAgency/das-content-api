@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore;
 using NLog;
 using NLog.Web;
 using SFA.DAS.Configuration.AzureTableStorage;
@@ -13,12 +12,15 @@ public class Program
         var logger = LogManager.Setup().LoadConfigurationFromFile("nlog.config").GetCurrentClassLogger();
         logger.Info("Starting up host");
 
-        CreateWebHostBuilder(args).Build().Run();
+        CreateHostBuilder(args).Build().Run();
     }
 
-    private static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
+    private static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration(c => c.AddAzureTableStorage(ContentApiConfigurationKeys.ContentApi))
-            .UseNLog()
-            .UseStartup<Startup>();
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+                webBuilder.UseNLog();
+            });
 }
