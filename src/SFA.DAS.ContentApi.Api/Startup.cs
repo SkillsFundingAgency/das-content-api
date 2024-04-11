@@ -2,6 +2,7 @@
 using Microsoft.OpenApi.Models;
 using SFA.DAS.ContentApi.Api.Extensions;
 using SFA.DAS.ContentApi.Api.ServiceRegistrations;
+using SFA.DAS.ContentApi.Data;
 using SFA.DAS.ContentApi.Extensions;
 
 namespace SFA.DAS.ContentApi.Api;
@@ -13,7 +14,7 @@ public class Startup
 
     public Startup(IConfiguration configuration, IHostEnvironment environment)
     {
-        _configuration = configuration;
+        _configuration = configuration.BuildDasConfiguration();
         _environment = environment;
     }
 
@@ -22,7 +23,7 @@ public class Startup
         services.AddActiveDirectoryAuthentication(_configuration);
         services.AddControllersWithViews();
 
-        services.AddApplicationServices();
+        services.AddTransient<IContentApiDbContextFactory, DbContextWithNewTransactionFactory>();
         services.AddConfigurationOptions(_configuration);
 
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
@@ -58,12 +59,7 @@ public class Startup
         }
 
         app.UseRouting();
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-        });
+        app.UseEndpoints(endpoints => { endpoints.MapDefaultControllerRoute(); });
         app.UseHttpsRedirection();
         app.UseHealthChecks("/health");
 
