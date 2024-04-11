@@ -5,23 +5,23 @@ using SFA.DAS.AutoConfiguration;
 using SFA.DAS.NServiceBus.SqlServer.Data;
 using SFA.DAS.UnitOfWork.Context;
 
-namespace SFA.DAS.ContentApi.Data
-{
-    public class DbContextWithNServiceBusTransactionFactory : IContentApiDbContextFactory
-    {
-        private readonly IEnvironmentService _environmentService;
-        private readonly IUnitOfWorkContext _unitOfWorkContext;
-        private readonly ILoggerFactory _loggerFactory;
+namespace SFA.DAS.ContentApi.Data;
 
-        public DbContextWithNServiceBusTransactionFactory(IEnvironmentService environmentService, IUnitOfWorkContext unitOfWorkContext, ILoggerFactory loggerFactory)
-        {
+public class DbContextWithNServiceBusTransactionFactory : IContentApiDbContextFactory
+{
+    private readonly IEnvironmentService _environmentService;
+    private readonly IUnitOfWorkContext _unitOfWorkContext;
+    private readonly ILoggerFactory _loggerFactory;
+
+    public DbContextWithNServiceBusTransactionFactory(IEnvironmentService environmentService, IUnitOfWorkContext unitOfWorkContext, ILoggerFactory loggerFactory)
+    {
             _environmentService = environmentService;
             _unitOfWorkContext = unitOfWorkContext;
             _loggerFactory = loggerFactory;
         }
 
-        public ContentApiDbContext CreateDbContext()
-        {
+    public ContentApiDbContext CreateDbContext()
+    {
             var synchronizedStorageSession = _unitOfWorkContext.Find<SynchronizedStorageSession>();
             var sqlStorageSession = synchronizedStorageSession.GetSqlStorageSession();
 
@@ -39,5 +39,4 @@ namespace SFA.DAS.ContentApi.Data
 
             return dbContext;
         }
-    }
 }

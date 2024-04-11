@@ -2,14 +2,13 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SFA.DAS.ContentApi.Models;
 
-namespace SFA.DAS.ContentApi.Data
+namespace SFA.DAS.ContentApi.Data;
+
+public class ContentTypeConfiguration : IEntityTypeConfiguration<ContentType>
 {
-    public class ContentTypeConfiguration : IEntityTypeConfiguration<ContentType>
+    public void Configure(EntityTypeBuilder<ContentType> builder)
     {
-        public void Configure(EntityTypeBuilder<ContentType> builder)
-        {
-            builder.Property(ct => ct.Id).ValueGeneratedNever();
-            builder.Property(ct => ct.Value).IsRequired().HasColumnType("varchar(20)");
-        }
+        builder.Property(ct => ct.Id).ValueGeneratedNever();
+        builder.Property(ct => ct.Value).IsRequired().HasColumnType("varchar(20)");
     }
 }

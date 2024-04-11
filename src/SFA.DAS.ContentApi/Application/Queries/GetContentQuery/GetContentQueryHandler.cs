@@ -2,19 +2,19 @@
 using Microsoft.EntityFrameworkCore;
 using SFA.DAS.ContentApi.Data;
 
-namespace SFA.DAS.ContentApi.Application.Queries.GetContentQuery
-{
-    public class GetContentQueryHandler : IRequestHandler<GetContentQuery, GetContentQueryResult>
-    {
-        private readonly Lazy<ContentApiDbContext> _db;
+namespace SFA.DAS.ContentApi.Application.Queries.GetContentQuery;
 
-        public GetContentQueryHandler(Lazy<ContentApiDbContext> db)
-        {
+public class GetContentQueryHandler : IRequestHandler<GetContentQuery, GetContentQueryResult>
+{
+    private readonly Lazy<ContentApiDbContext> _db;
+
+    public GetContentQueryHandler(Lazy<ContentApiDbContext> db)
+    {
             _db = db;
         }
 
-        public async Task<GetContentQueryResult> Handle(GetContentQuery request, CancellationToken cancellationToken)
-        {
+    public async Task<GetContentQueryResult> Handle(GetContentQuery request, CancellationToken cancellationToken)
+    {
             var contents = await _db.Value.Application
                 .Where(a => a.Identity == request.ApplicationId.ToLower())
                 .SelectMany(c => c.ApplicationContent)
@@ -29,5 +29,4 @@ namespace SFA.DAS.ContentApi.Application.Queries.GetContentQuery
 
             return new GetContentQueryResult(contents != null ? contents.Data : string.Empty);
         }
-    }
 }

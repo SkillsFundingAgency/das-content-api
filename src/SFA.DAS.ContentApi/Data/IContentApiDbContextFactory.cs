@@ -1,7 +1,6 @@
-namespace SFA.DAS.ContentApi.Data
+namespace SFA.DAS.ContentApi.Data;
+
+public interface IContentApiDbContextFactory
 {
-    public interface IContentApiDbContextFactory
-    {
-        ContentApiDbContext CreateDbContext();
-    }
+    ContentApiDbContext CreateDbContext();
 }
