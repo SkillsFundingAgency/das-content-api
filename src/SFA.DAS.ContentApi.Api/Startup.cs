@@ -26,11 +26,10 @@ public class Startup
             builder.AddFilter<ApplicationInsightsLoggerProvider>(string.Empty, LogLevel.Information);
             builder.AddFilter<ApplicationInsightsLoggerProvider>("Microsoft", LogLevel.Information);
         });
-        
+
         services.AddActiveDirectoryAuthentication(_configuration);
         services.AddControllersWithViews();
 
-        services.AddTransient<IContentApiDbContextFactory, DbContextWithNewTransactionFactory>();
         services.AddConfigurationOptions(_configuration);
 
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));

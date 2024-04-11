@@ -13,23 +13,23 @@ public class DbContextWithNewTransactionFactory : IContentApiDbContextFactory
 
     public DbContextWithNewTransactionFactory(DbConnection dbConnection, IEnvironmentService environmentService, ILoggerFactory loggerFactory)
     {
-            _dbConnection = dbConnection;
-            _environmentService = environmentService;
-            _loggerFactory = loggerFactory;
-        }
+        _dbConnection = dbConnection;
+        _environmentService = environmentService;
+        _loggerFactory = loggerFactory;
+    }
 
     public ContentApiDbContext CreateDbContext()
     {
-            var optionsBuilder = new DbContextOptionsBuilder<ContentApiDbContext>()
-                .UseSqlServer(_dbConnection);
+        var optionsBuilder = new DbContextOptionsBuilder<ContentApiDbContext>()
+            .UseSqlServer(_dbConnection);
 
-            if (_environmentService.IsCurrent(DasEnv.LOCAL))
-            {
-                optionsBuilder.UseLoggerFactory(_loggerFactory);
-            }
-
-            var dbContext = new ContentApiDbContext(optionsBuilder.Options);
-
-            return dbContext;
+        if (_environmentService.IsCurrent(DasEnv.LOCAL))
+        {
+            optionsBuilder.UseLoggerFactory(_loggerFactory);
         }
+
+        var dbContext = new ContentApiDbContext(optionsBuilder.Options);
+
+        return dbContext;
+    }
 }
