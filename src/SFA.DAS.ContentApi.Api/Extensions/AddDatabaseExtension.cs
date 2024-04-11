@@ -13,15 +13,22 @@ public static class AddDatabaseExtension
 
         if (isDevelopment)
         {
-            services.AddDbContext<ContentApiDbContext>(options => options.UseSqlServer(databaseConnectionString), ServiceLifetime.Transient);
+            services.AddDbContext<ContentApiDbContext>(options => options.UseSqlServer(databaseConnectionString));
         }
         else
         {
             services.AddSingleton(new AzureServiceTokenProvider());
-            services.AddDbContext<ContentApiDbContext>(ServiceLifetime.Transient);
-        }
+            // services.AddDbContext<ContentApiDbContext>(ServiceLifetime.Transient);
+            services.AddDbContext<ContentApiDbContext>(builder =>
+            {
+                var connection = DatabaseExtensions.GetSqlConnection(databaseConnectionString);
+                builder.UseSqlServer(connection);
+            });
 
-        services.AddTransient<IContentApiDbContextFactory, DbContextWithNewTransactionFactory>(c => c.GetService<DbContextWithNewTransactionFactory>());
-        services.AddTransient(c => new Lazy<ContentApiDbContext>(c.GetService<ContentApiDbContext>()));
+            // services.AddTransient<IContentApiDbContextFactory, DbContextWithNewTransactionFactory>(c => c.GetService<DbContextWithNewTransactionFactory>());
+            //services.AddScoped(provider => new Lazy<ContentApiDbContext>(c.GetService<ContentApiDbContext>()));
+        }
+        
+        services.AddScoped(c => new Lazy<ContentApiDbContext>(c.GetService<ContentApiDbContext>()));
     }
 }
