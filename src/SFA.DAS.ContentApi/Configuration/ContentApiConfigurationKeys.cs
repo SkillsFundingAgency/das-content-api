@@ -3,5 +3,5 @@
 public static class ContentApiConfigurationKeys
 {
     public const string ContentApi = "SFA.DAS.ContentApi";
-    public static string ActiveDirectorySettings = $"{ContentApi}:ActiveDirectorySettings";
+    public const string ActiveDirectorySettings = $"{ContentApi}:ActiveDirectorySettings";
 }

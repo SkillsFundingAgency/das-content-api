@@ -1,6 +1,6 @@
 ﻿namespace SFA.DAS.ContentApi.Application.Queries.GetContentQuery;
 
-public class GetContentQueryResult
+public record GetContentQueryResult
 {
     public GetContentQueryResult(string content)
     {

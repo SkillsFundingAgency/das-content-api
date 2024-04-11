@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using MediatR;
+using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Memory;
 using Microsoft.Extensions.DependencyInjection;
@@ -44,6 +45,7 @@ public class WhenAddingServicesToTheContainer
         services.AddHttpClient();
         services.AddDatabaseRegistration(stubConfiguration, true);
         services.AddSingleton<IConfiguration>(stubConfiguration);
+        services.AddSingleton(new AzureServiceTokenProvider());
         services.AddHttpContextAccessor();
         services.AddMediatR(x => x.RegisterServicesFromAssemblyContaining<GetContentQueryHandler>());
 

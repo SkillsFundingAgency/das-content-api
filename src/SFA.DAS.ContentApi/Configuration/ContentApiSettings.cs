@@ -1,6 +1,6 @@
 ﻿namespace SFA.DAS.ContentApi.Configuration;
 
-public class ContentApiSettings 
+public record ContentApiSettings 
 {
     public string DatabaseConnectionString { get; set; }
 

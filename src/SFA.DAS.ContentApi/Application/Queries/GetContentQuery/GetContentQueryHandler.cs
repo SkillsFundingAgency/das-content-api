@@ -4,25 +4,18 @@ using SFA.DAS.ContentApi.Data;
 
 namespace SFA.DAS.ContentApi.Application.Queries.GetContentQuery;
 
-public class GetContentQueryHandler : IRequestHandler<GetContentQuery, GetContentQueryResult>
+public class GetContentQueryHandler(Lazy<ContentApiDbContext> db) : IRequestHandler<GetContentQuery, GetContentQueryResult>
 {
-    private readonly Lazy<ContentApiDbContext> _db;
-
-    public GetContentQueryHandler(Lazy<ContentApiDbContext> db)
-    {
-        _db = db;
-    }
-
     public async Task<GetContentQueryResult> Handle(GetContentQuery request, CancellationToken cancellationToken)
     {
-        var contents = await _db.Value.Application
-            .Where(a => a.Identity == request.ApplicationId.ToLower())
+        var contents = await db.Value.Application
+            .Where(application => application.Identity == request.ApplicationId.ToLower())
             .SelectMany(c => c.ApplicationContent)
-            .Where(ac =>
-                ac.Content.ContentType.Value == request.Type.ToLower() &&
-                ac.Content.Active &&
-                (!ac.Content.StartDate.HasValue || ac.Content.StartDate.Value < DateTime.Now) &&
-                (!ac.Content.EndDate.HasValue || ac.Content.EndDate.Value > DateTime.Now))
+            .Where(content =>
+                content.Content.ContentType.Value == request.Type.ToLower() &&
+                content.Content.Active &&
+                (!content.Content.StartDate.HasValue || content.Content.StartDate.Value < DateTime.Now) &&
+                (!content.Content.EndDate.HasValue || content.Content.EndDate.Value > DateTime.Now))
             .OrderByDescending(a => a.ContentId)
             .Select(ac => ac.Content)
             .FirstOrDefaultAsync(cancellationToken);

@@ -21,7 +21,7 @@ class GetContentQueryHandlerTests
     )
     {
         //arrange
-        var htmlData = "<h1>a banner</h1>";
+        const string htmlData = "<h1>a banner</h1>";
         await SetupApplicationContent(setupContext, applicationIdentity, type, isActive: true, htmlData);
 
         var query = new GetContentQuery
@@ -47,7 +47,7 @@ class GetContentQueryHandlerTests
     )
     {
         //arrange
-        var htmlData = "<h1>a banner</h1>";
+        const string htmlData = "<h1>a banner</h1>";
         await SetupApplicationContent(setupContext, applicationIdentity, type, isActive: false, htmlData);
 
         var query = new GetContentQuery
@@ -73,7 +73,7 @@ class GetContentQueryHandlerTests
     )
     {
         //arrange
-        var htmlData = "<h1>a banner</h1>";
+        const string htmlData = "<h1>a banner</h1>";
         var startDate = DateTime.Now.AddDays(-1);
         var endDate = DateTime.Now.AddDays(1);
         await SetupApplicationContent(setupContext, applicationIdentity, type, isActive: true, htmlData, startDate: startDate, endDate: endDate);
@@ -101,7 +101,7 @@ class GetContentQueryHandlerTests
     )
     {
         //arrange
-        var htmlData = "<h1>a banner</h1>";
+        const string htmlData = "<h1>a banner</h1>";
         var startDate = DateTime.Now.AddDays(-1);
         await SetupApplicationContent(setupContext, applicationIdentity, type, isActive: true, htmlData, startDate: startDate);
 
@@ -128,7 +128,7 @@ class GetContentQueryHandlerTests
     )
     {
         //arrange
-        var htmlData = "<h1>a banner</h1>";
+        const string htmlData = "<h1>a banner</h1>";
         var endDate = DateTime.Now.AddDays(1);
         await SetupApplicationContent(setupContext, applicationIdentity, type, isActive: true, htmlData, endDate: endDate);
 
@@ -155,7 +155,7 @@ class GetContentQueryHandlerTests
     )
     {
         //arrange
-        var htmlData = "<h1>a banner</h1>";
+        const string htmlData = "<h1>a banner</h1>";
         var startDate = DateTime.Now.AddDays(-1);
         var endDate = DateTime.Now.AddDays(1);
         await SetupApplicationContent(setupContext, applicationIdentity, type, isActive: false, htmlData, startDate: startDate, endDate: endDate);
@@ -184,7 +184,7 @@ class GetContentQueryHandlerTests
     )
     {
         //arrange
-        var htmlData = "<h1>a banner</h1>";
+        const string htmlData = "<h1>a banner</h1>";
         var startDate = DateTime.Now.AddDays(-1);
         var endDate = DateTime.Now.AddDays(1);
         await SetupApplicationContent(setupContext, applicationIdentity, type, isActive: true, htmlData, contentId, startDate, endDate);
@@ -214,7 +214,7 @@ class GetContentQueryHandlerTests
     )
     {
         //arrange
-        var htmlData = "<h1>a banner</h1>";
+        const string htmlData = "<h1>a banner</h1>";
         var startDate = DateTime.Now.AddDays(-1);
         var endDate = DateTime.Now.AddDays(1);
         await SetupApplicationContent(setupContext, applicationIdentity, type, isActive: true, htmlData,  contentId, startDate, endDate);
@@ -234,7 +234,7 @@ class GetContentQueryHandlerTests
         result.Content.Should().Be(htmlData);
     }
 
-    private async Task SetupAdditionalContentForApplication(ContentApiDbContext setupContext, string applicationIdentity, long contentId, string htmlData)
+    private static async Task SetupAdditionalContentForApplication(ContentApiDbContext setupContext, string applicationIdentity, long contentId, string htmlData)
     {
         var existingApplication = await setupContext.Application.SingleOrDefaultAsync(a => a.Identity == applicationIdentity.ToLowerInvariant());
         existingApplication!.ApplicationContent.Add(new()
@@ -256,7 +256,7 @@ class GetContentQueryHandlerTests
         await setupContext.SaveChangesAsync();
     }
 
-    private async Task SetupAdditionalApplicationForContent(ContentApiDbContext setupContext, long contentId, long applicationId, string applicationIdentity)
+    private static async Task SetupAdditionalApplicationForContent(ContentApiDbContext setupContext, long contentId, long applicationId, string applicationIdentity)
     {
         var existingContent = await setupContext.Content.FindAsync(contentId);
         existingContent!.ApplicationContent.Add(new()

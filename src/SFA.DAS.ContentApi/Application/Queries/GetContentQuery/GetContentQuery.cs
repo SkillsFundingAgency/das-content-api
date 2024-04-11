@@ -3,7 +3,7 @@ using MediatR;
 
 namespace SFA.DAS.ContentApi.Application.Queries.GetContentQuery;
 
-public class GetContentQuery : IRequest<GetContentQueryResult>
+public record GetContentQuery : IRequest<GetContentQueryResult>
 {
     [Required]
     public string Type { get; set; }
