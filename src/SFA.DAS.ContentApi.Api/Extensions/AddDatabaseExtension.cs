@@ -11,24 +11,20 @@ public static class AddDatabaseExtension
     {
         var databaseConnectionString = configuration.GetSection(ContentApiConfigurationKeys.ContentApi).Get<ContentApiSettings>().DatabaseConnectionString;
 
-        // if (isDevelopment)
-        // {
-        //     services.AddDbContext<ContentApiDbContext>(options => options.UseSqlServer(databaseConnectionString));
-        // }
-        // else
+        if (isDevelopment)
+        {
+            services.AddDbContext<ContentApiDbContext>(options => options.UseSqlServer(databaseConnectionString));
+        }
+        else
         {
             services.AddSingleton(new AzureServiceTokenProvider());
-            // services.AddDbContext<ContentApiDbContext>(ServiceLifetime.Transient);
             services.AddDbContext<ContentApiDbContext>(builder =>
             {
                 var connection = DatabaseExtensions.GetSqlConnection(databaseConnectionString);
                 builder.UseSqlServer(connection);
             });
-
-            // services.AddTransient<IContentApiDbContextFactory, DbContextWithNewTransactionFactory>(c => c.GetService<DbContextWithNewTransactionFactory>());
-            //services.AddScoped(provider => new Lazy<ContentApiDbContext>(c.GetService<ContentApiDbContext>()));
         }
-        
+
         services.AddScoped(c => new Lazy<ContentApiDbContext>(c.GetService<ContentApiDbContext>()));
     }
 }
