@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging.ApplicationInsights;
 using Microsoft.OpenApi.Models;
 using SFA.DAS.ContentApi.Api.Extensions;
 using SFA.DAS.ContentApi.Api.ServiceRegistrations;
+using SFA.DAS.ContentApi.Application.Queries.GetContentQuery;
 using SFA.DAS.ContentApi.Data;
 using SFA.DAS.ContentApi.Extensions;
 
@@ -32,7 +33,7 @@ public class Startup
 
         services.AddConfigurationOptions(_configuration);
 
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<GetContentQueryHandler>());
 
         services.AddDasDistributedMemoryCache(_configuration, _environment.IsDevelopment());
 
