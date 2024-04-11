@@ -1,9 +1,8 @@
-﻿using SFA.DAS.ContentApi.Api.DependencyResolution;
-using SFA.DAS.ContentApi.Api.Extensions;
-using SFA.DAS.ContentApi.Extensions;
-using StructureMap;
-using System.Reflection;
+﻿using System.Reflection;
 using Microsoft.OpenApi.Models;
+using SFA.DAS.ContentApi.Api.Extensions;
+using SFA.DAS.ContentApi.Api.ServiceRegistrations;
+using SFA.DAS.ContentApi.Extensions;
 
 namespace SFA.DAS.ContentApi.Api;
 
@@ -23,8 +22,11 @@ public class Startup
         services.AddActiveDirectoryAuthentication(_configuration);
         services.AddControllersWithViews();
 
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+        services.AddApplicationServices();
+        services.AddConfigurationOptions(_configuration);
 
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+        
         services.AddDasDistributedMemoryCache(_configuration, _environment.IsDevelopment());
 
         services.AddDatabaseRegistration(_configuration, _environment.IsDevelopment());
@@ -71,10 +73,5 @@ public class Startup
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Content API");
                 c.RoutePrefix = string.Empty;
             });
-    }
-
-    public void ConfigureContainer(Registry registry)
-    {
-        IoC.Initialize(registry);
     }
 }
