@@ -11,11 +11,12 @@ public class ContentDbCustomizations : ICustomization
         var perTestDatabaseName = Guid.NewGuid();
         fixture.Register(() => CreateInMemoryProviderDb(perTestDatabaseName));
     }
-        
+
     private static ContentApiDbContext CreateInMemoryProviderDb(Guid databaseGuid)
     {
-        return new ContentApiDbContext(
-            new DbContextOptionsBuilder<ContentApiDbContext>().
-                UseInMemoryDatabase(databaseGuid.ToString()).Options);
+        return new ContentApiDbContext(configuration: null,
+            new DbContextOptionsBuilder<ContentApiDbContext>().UseInMemoryDatabase(databaseGuid.ToString()).Options,
+            azureServiceTokenProvider: null
+        );
     }
 }

@@ -56,14 +56,13 @@ public class WhenAddingServicesToTheContainer
     {
         var configSource = new MemoryConfigurationSource
         {
-            InitialData = new List<KeyValuePair<string, string>>
+            InitialData = new List<KeyValuePair<string, string?>>
             {
-                
                 new("SFA.DAS.ContentApi:ConfigNames", "SFA.DAS.ContentApi"),
                 new("SFA.DAS.ContentApi:APPINSIGHTS_INSTRUMENTATIONKEY", "test"),
 
                 new("SFA.DAS.ContentApi:DatabaseConnectionString", "Data Source=(localDB)\\MSSQLLocalDB;Database=SFA.DAS.ContentApi.Database;Integrated Security = true;Trusted_Connection=True;Pooling=False;Connect Timeout=30;MultipleActiveResultSets=True;ConnectRetryCount=3;ConnectRetryInterval=2"),
-                
+
                 new("SFA.DAS.ContentApi:ActiveDirectorySettings:Tenant", "https://test.com/"),
                 new("SFA.DAS.ContentApi:AuthenticationSettings:IdentifierUri", "https://test.com/"),
                 new("SFA.DAS.ContentApi:AuthenticationSettings:AppId", "TEST"),
