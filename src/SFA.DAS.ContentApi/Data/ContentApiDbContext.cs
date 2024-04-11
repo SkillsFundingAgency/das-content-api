@@ -21,22 +21,18 @@ public class ContentApiDbContext : DbContext
     public ContentApiDbContext(DbContextOptions<ContentApiDbContext> options) : base(options)
     {
     }
-
-    protected ContentApiDbContext()
-    {
-    }       
-
-    public virtual Task ExecuteSqlCommandAsync(string sql, params object[] parameters)
-    {
-        return Database.ExecuteSqlRawAsync(sql, parameters);
-    }
-
+    
     public ContentApiDbContext(IConfiguration configuration, DbContextOptions options, AzureServiceTokenProvider azureServiceTokenProvider) : base(options)
     {
         _configuration = configuration;
         _azureServiceTokenProvider = azureServiceTokenProvider;
     }
-
+    
+    public virtual Task ExecuteSqlCommandAsync(string sql, params object[] parameters)
+    {
+        return Database.ExecuteSqlRawAsync(sql, parameters);
+    }
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (_configuration == null || _azureServiceTokenProvider == null)
