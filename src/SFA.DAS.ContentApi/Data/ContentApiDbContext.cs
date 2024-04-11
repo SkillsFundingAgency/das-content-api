@@ -22,12 +22,7 @@ public class ContentApiDbContext : DbContext
         _configuration = configuration;
         _azureServiceTokenProvider = azureServiceTokenProvider;
     }
-
-    public virtual Task ExecuteSqlCommandAsync(string sql, params object[] parameters)
-    {
-        return Database.ExecuteSqlRawAsync(sql, parameters);
-    }
-
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (_configuration == null || _azureServiceTokenProvider == null)

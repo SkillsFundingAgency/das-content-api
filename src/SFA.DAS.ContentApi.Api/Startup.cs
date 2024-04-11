@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging.ApplicationInsights;
+﻿using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.Extensions.Logging.ApplicationInsights;
 using Microsoft.OpenApi.Models;
 using SFA.DAS.ContentApi.Api.Extensions;
 using SFA.DAS.ContentApi.Api.ServiceRegistrations;
@@ -26,6 +27,7 @@ public class Startup
             builder.AddFilter<ApplicationInsightsLoggerProvider>("Microsoft", LogLevel.Information);
         });
 
+        services.AddSingleton(new AzureServiceTokenProvider());
         services.AddActiveDirectoryAuthentication(_configuration);
         services.AddControllersWithViews();
 
