@@ -5,78 +5,76 @@ using StructureMap;
 using System.Reflection;
 using Microsoft.OpenApi.Models;
 
-namespace SFA.DAS.ContentApi.Api
+namespace SFA.DAS.ContentApi.Api;
+
+public class Startup
 {
-    public class Startup
+    private readonly IConfiguration _configuration;
+    private readonly IWebHostEnvironment _environment;
+    
+    public Startup(IConfiguration configuration, IWebHostEnvironment environment)
     {
-        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
+        _configuration = configuration;
+        _environment = environment;
+    }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddActiveDirectoryAuthentication(_configuration);
+        services.AddControllersWithViews();
+
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+
+        services.AddDasDistributedMemoryCache(_configuration, _environment.IsDevelopment());
+
+        services.AddDatabaseRegistration(_configuration, _environment.IsDevelopment());
+
+        services.AddSwaggerGen(c =>
         {
-            Configuration = configuration;
-            Environment = environment;
-        }
-
-        public IConfiguration Configuration { get; }
-        public IWebHostEnvironment Environment { get; }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddActiveDirectoryAuthentication(Configuration);
-            services.AddControllersWithViews();
-
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
-
-            services.AddDasDistributedMemoryCache(Configuration, Environment.IsDevelopment());
-
-            services.AddDatabaseRegistration(Configuration, Environment.IsDevelopment());
-
-            services.AddSwaggerGen(c =>
+            c.SwaggerDoc("v1", new OpenApiInfo
             {
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Version = "v1",
-                    Title = "Content API"
-                });
+                Version = "v1",
+                Title = "Content API"
             });
+        });
 
-            services.AddMemoryCache();
-            services.AddHealthChecks();
-            services.AddApplicationInsightsTelemetry();
+        services.AddMemoryCache();
+        services.AddHealthChecks();
+        services.AddApplicationInsightsTelemetry();
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+        else
+        {
+            app.UseHsts();
+            app.UseAuthentication();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        app.UseRouting();
+        app.UseEndpoints(endpoints =>
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseHsts();
-                app.UseAuthentication();
-            }
+            endpoints.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+        });
+        app.UseHttpsRedirection();
+        app.UseHealthChecks("/health");
 
-            app.UseRouting();
-            app.UseEndpoints(endpoints =>
+        app.UseSwagger()
+            .UseSwaggerUI(c =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Content API");
+                c.RoutePrefix = string.Empty;
             });
-            app.UseHttpsRedirection();
-            app.UseHealthChecks("/health");
+    }
 
-            app.UseSwagger()
-                .UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Content API");
-                    c.RoutePrefix = string.Empty;
-                });
-        }
-
-        public void ConfigureContainer(Registry registry)
-        {
-            IoC.Initialize(registry);
-        }
+    public void ConfigureContainer(Registry registry)
+    {
+        IoC.Initialize(registry);
     }
 }
