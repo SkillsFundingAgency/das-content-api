@@ -9,7 +9,7 @@ public static class DatabaseExtensions
 {
     private const string AzureResource = "https://database.windows.net/";
 
-    public static DbConnection GetSqlConnection(string connectionString)
+    public static DbConnection GetSqlConnection(string? connectionString)
     {
         if (string.IsNullOrEmpty(connectionString))
         {

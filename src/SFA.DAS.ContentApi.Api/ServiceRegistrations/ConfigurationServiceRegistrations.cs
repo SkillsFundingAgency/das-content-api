@@ -17,7 +17,7 @@ public static class ConfigurationServiceRegistrations
     private static void AddConfigurationFor<T>(this IServiceCollection services, IConfiguration configuration,
         string key) where T : class => services.AddSingleton(GetConfigurationFor<T>(configuration, key));
 
-    private static T GetConfigurationFor<T>(IConfiguration configuration, string name)
+    private static T? GetConfigurationFor<T>(IConfiguration configuration, string name)
     {
         var section = configuration.GetSection(name);
         return section.Get<T>();

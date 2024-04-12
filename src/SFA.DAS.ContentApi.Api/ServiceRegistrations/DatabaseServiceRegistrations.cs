@@ -10,7 +10,7 @@ public static class DatabaseServiceRegistrations
 {
     public static void AddDatabaseRegistration(this IServiceCollection services, IConfiguration configuration, bool isDevelopment)
     {
-        var databaseConnectionString = configuration.GetSection(ContentApiConfigurationKeys.ContentApi).Get<ContentApiSettings>().DatabaseConnectionString;
+        var databaseConnectionString = configuration.GetSection(ContentApiConfigurationKeys.ContentApi).Get<ContentApiSettings>()?.DatabaseConnectionString;
 
         if (isDevelopment)
         {
@@ -26,6 +26,6 @@ public static class DatabaseServiceRegistrations
             });
         }
 
-        services.AddScoped(c => new Lazy<ContentApiDbContext>(c.GetService<ContentApiDbContext>()));
+        services.AddScoped(c => new Lazy<ContentApiDbContext?>(c.GetService<ContentApiDbContext>()));
     }
 }

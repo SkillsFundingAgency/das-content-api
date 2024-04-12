@@ -54,7 +54,7 @@ public class WhenAddingServicesToTheContainer
         services.AddConfigurationOptions(stubConfiguration);
     }
 
-    private static IConfigurationRoot GenerateStubConfiguration()
+    private static ConfigurationRoot GenerateStubConfiguration()
     {
         var configSource = new MemoryConfigurationSource
         {

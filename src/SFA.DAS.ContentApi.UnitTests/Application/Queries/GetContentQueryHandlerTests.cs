@@ -10,7 +10,7 @@ namespace SFA.DAS.ContentApi.UnitTests.Application.Queries;
 
 [TestFixture]
 [Parallelizable]
-class GetContentQueryHandlerTests
+public class GetContentQueryHandlerTests
 {
     [Test, ContentAutoData]
     public async Task Handle_WhenHandlingGetContentQuery_ThenShouldReturnAContentString_ForActiveContent(
@@ -37,7 +37,7 @@ class GetContentQueryHandlerTests
         result.Should().NotBeNull();
         result.Content.Should().Be(htmlData);
     }
-        
+
     [Test, ContentAutoData]
     public async Task Handle_WhenHandlingGetContentQuery_ThenShouldReturnEmpty_WhenNoActiveContent(
         ContentApiDbContext setupContext,
@@ -63,7 +63,7 @@ class GetContentQueryHandlerTests
         result.Should().NotBeNull();
         result.Content.Should().Be(string.Empty);
     }
-        
+
     [Test, ContentAutoData]
     public async Task Handle_WhenHandlingGetContentQuery_ThenShouldReturnAContentString_ForActiveContentWithinDates(
         ContentApiDbContext setupContext,
@@ -91,7 +91,7 @@ class GetContentQueryHandlerTests
         result.Should().NotBeNull();
         result.Content.Should().Be(htmlData);
     }
-        
+
     [Test, ContentAutoData]
     public async Task Handle_WhenHandlingGetContentQuery_ThenShouldReturnAContentString_ForActiveContent_AfterStartDate_NoEndDate(
         ContentApiDbContext setupContext,
@@ -118,7 +118,7 @@ class GetContentQueryHandlerTests
         result.Should().NotBeNull();
         result.Content.Should().Be(htmlData);
     }
-        
+
     [Test, ContentAutoData]
     public async Task Handle_WhenHandlingGetContentQuery_ThenShouldReturnAContentString_ForActiveContent_NoStartDate_BeforeEndDate(
         ContentApiDbContext setupContext,
@@ -145,7 +145,7 @@ class GetContentQueryHandlerTests
         result.Should().NotBeNull();
         result.Content.Should().Be(htmlData);
     }
-        
+
     [Test, ContentAutoData]
     public async Task Handle_WhenHandlingGetContentQuery_ThenShouldReturnEmptyContent_ForInactiveContent_EvenWithinDates(
         ContentApiDbContext setupContext,
@@ -173,7 +173,7 @@ class GetContentQueryHandlerTests
         result.Should().NotBeNull();
         result.Content.Should().Be(string.Empty);
     }
-        
+
     [Test, ContentAutoData]
     public async Task Handle_WhenHandlingGetContentQuery_ThenShouldReturnCorrectContent_WhenContentTypes_AppliesToMultipleApplications(
         ContentApiDbContext setupContext,
@@ -217,9 +217,9 @@ class GetContentQueryHandlerTests
         const string htmlData = "<h1>a banner</h1>";
         var startDate = DateTime.Now.AddDays(-1);
         var endDate = DateTime.Now.AddDays(1);
-        await SetupApplicationContent(setupContext, applicationIdentity, type, isActive: true, htmlData,  contentId, startDate, endDate);
+        await SetupApplicationContent(setupContext, applicationIdentity, type, isActive: true, htmlData, contentId, startDate, endDate);
         await SetupAdditionalContentForApplication(setupContext, applicationIdentity, 777, "<h2>some wrong content</h2>");
-            
+
         var query = new GetContentQuery
         {
             Type = type,
@@ -236,7 +236,7 @@ class GetContentQueryHandlerTests
 
     private static async Task SetupAdditionalContentForApplication(ContentApiDbContext setupContext, string applicationIdentity, long contentId, string htmlData)
     {
-        var existingApplication = await setupContext.Application.SingleOrDefaultAsync(a => a.Identity == applicationIdentity.ToLowerInvariant());
+        var existingApplication = await setupContext.Application.SingleOrDefaultAsync(a => a.Identity.Equals(applicationIdentity.ToLowerInvariant()));
         existingApplication!.ApplicationContent.Add(new()
         {
             Id = 222,
@@ -283,7 +283,6 @@ class GetContentQueryHandlerTests
         DateTime? startDate = null,
         DateTime? endDate = null)
     {
-           
         setupContext.Application.Add(new Models.Application
         {
             Id = 1,

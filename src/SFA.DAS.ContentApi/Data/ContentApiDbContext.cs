@@ -6,7 +6,8 @@ using SFA.DAS.ContentApi.Models;
 
 namespace SFA.DAS.ContentApi.Data;
 
-public class ContentApiDbContext : DbContext
+public class ContentApiDbContext(ContentApiSettings? configuration, DbContextOptions options, AzureServiceTokenProvider? azureServiceTokenProvider)
+    : DbContext(options)
 {
     private const string AzureResource = "https://database.windows.net/";
     public DbSet<Models.Application> Application { get; set; }
@@ -14,26 +15,17 @@ public class ContentApiDbContext : DbContext
     public DbSet<Content> Content { get; set; }
     public DbSet<ContentType> ContentType { get; set; }
 
-    private readonly ContentApiSettings _configuration;
-    private readonly AzureServiceTokenProvider _azureServiceTokenProvider;
-
-    public ContentApiDbContext(ContentApiSettings configuration, DbContextOptions options, AzureServiceTokenProvider azureServiceTokenProvider) : base(options)
-    {
-        _configuration = configuration;
-        _azureServiceTokenProvider = azureServiceTokenProvider;
-    }
-    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if (_configuration == null || _azureServiceTokenProvider == null)
+        if (configuration == null || azureServiceTokenProvider == null)
         {
             return;
         }
 
         var connection = new SqlConnection
         {
-            ConnectionString = _configuration.DatabaseConnectionString,
-            AccessToken = _azureServiceTokenProvider.GetAccessTokenAsync(AzureResource).Result,
+            ConnectionString = configuration.DatabaseConnectionString,
+            AccessToken = azureServiceTokenProvider.GetAccessTokenAsync(AzureResource).Result,
         };
 
         optionsBuilder.UseSqlServer(connection, options =>

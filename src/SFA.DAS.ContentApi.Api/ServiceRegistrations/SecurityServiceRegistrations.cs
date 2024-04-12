@@ -9,24 +9,22 @@ public static class SecurityServiceRegistrations
     {
         var activeDirectorySettings = configuration.GetSection(ContentApiConfigurationKeys.ActiveDirectorySettings).Get<ActiveDirectorySettings>();
 
-        services.AddAuthorization(options =>
-        {
-            options.AddPolicy("default", policy =>
+        services.AddAuthorizationBuilder()
+            .AddPolicy("default", policy =>
             {
                 policy.RequireAuthenticatedUser();
                 policy.RequireRole("Default");
             });
-        });
 
         services.AddAuthentication(auth =>
         {
             auth.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
         }).AddJwtBearer(auth =>
         {
-            auth.Authority = $"https://login.microsoftonline.com/{activeDirectorySettings.Tenant}";
+            auth.Authority = $"https://login.microsoftonline.com/{activeDirectorySettings?.Tenant}";
             auth.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
             {
-                ValidAudiences = activeDirectorySettings.IdentifierUri.Split(','),
+                ValidAudiences = activeDirectorySettings?.IdentifierUri.Split(','),
             };
         });
     }

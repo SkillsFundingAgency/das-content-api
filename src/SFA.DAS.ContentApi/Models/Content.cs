@@ -1,6 +1,6 @@
 ﻿namespace SFA.DAS.ContentApi.Models;
 
-public class Content : Entity
+public record Content
 {
     public long Id { get; set; }
 
