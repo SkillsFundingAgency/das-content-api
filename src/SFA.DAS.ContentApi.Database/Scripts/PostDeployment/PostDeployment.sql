@@ -10,6 +10,6 @@
 :r .\InsertOrUpdateContent.sql
 :r .\InsertOrUpdateApplicationContent.sql
     
-:r .\50PercentTransfer_Banner_2024.sql.sql
+:r .\50PercentTransfer_Banner_2024.sql
 
 COMMIT TRANSACTION
