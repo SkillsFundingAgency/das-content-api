@@ -11,7 +11,7 @@ DECLARE @Content    VARCHAR(MAX) = N'<div class="govuk-notification-banner" role
         <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Important</h2>
     </div>
     <div class="govuk-notification-banner__content">
-        <p class="govuk-body govuk-!-font-weight-bold">From 22 April, the amount of levy funds you can share with other businesses will increase to 50%. <a href="https://www.gov.uk/guidance/transferring-your-apprenticeship-levy-to-another-business" target="_blank">Learn more about sharing levy funds</a>.</p>
+        <p class="govuk-body govuk-!-font-weight-bold">From 22 April, the amount of funds apprenticeship levy-paying employers can share with other businesses will increase to 50%. <a href="https://www.gov.uk/guidance/transferring-your-apprenticeship-levy-to-another-business" target="_blank">Learn more about sharing levy funds</a>.</p>
     </div>
 </div>';
 
