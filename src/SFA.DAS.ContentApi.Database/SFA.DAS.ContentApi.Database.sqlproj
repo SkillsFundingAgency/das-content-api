@@ -62,7 +62,8 @@
     <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scripts\PostDeployment\NAW_Banner_2024.sql" />
+    <None Include="Scripts\Archive\NAW_Banner_2024.sql" />
+    <None Include="Scripts\PostDeployment\50PercentTransfer_Banner_2024.sql" />
     <Build Include="Tables\Content.sql" />
     <Build Include="Tables\Application.sql" />
     <Build Include="Tables\ContentType.sql" />
