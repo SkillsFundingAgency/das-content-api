@@ -1,12 +1,11 @@
-﻿namespace SFA.DAS.ContentApi.Application.Queries.GetContentQuery
+﻿namespace SFA.DAS.ContentApi.Application.Queries.GetContentQuery;
+
+public record GetContentQueryResult
 {
-    public class GetContentQueryResult
+    public GetContentQueryResult(string content)
     {
-        public GetContentQueryResult(string content)
-        {
             Content = content;
         }
 
-        public string Content { get; }
-    }
+    public string Content { get; }
 }

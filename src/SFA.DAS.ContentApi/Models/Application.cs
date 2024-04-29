@@ -1,13 +1,12 @@
-﻿namespace SFA.DAS.ContentApi.Models
+﻿namespace SFA.DAS.ContentApi.Models;
+
+public record Application 
 {
-    public class Application : Entity
-    {
-        public long Id { get; set; }
+    public long Id { get; set; }
 
-        public string Description { get; set; }
+    public string Description { get; set; }
 
-        public string Identity { get; set; }
+    public string Identity { get; set; }
 
-        public ICollection<ApplicationContent> ApplicationContent { get; set; }
-    }
+    public ICollection<ApplicationContent> ApplicationContent { get; set; }
 }

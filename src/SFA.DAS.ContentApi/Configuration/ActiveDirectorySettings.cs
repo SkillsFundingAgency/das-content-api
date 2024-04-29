@@ -1,9 +1,8 @@
-﻿namespace SFA.DAS.ContentApi.Configuration
+﻿namespace SFA.DAS.ContentApi.Configuration;
+
+public record ActiveDirectorySettings
 {
-    public class ActiveDirectorySettings
-    {
-        public string Tenant { get; set; }
-        public string IdentifierUri { get; set; }
-        public string AppId { get; set; }
-    }
+    public string Tenant { get; set; }
+    public string IdentifierUri { get; set; }
+    public string AppId { get; set; }
 }
