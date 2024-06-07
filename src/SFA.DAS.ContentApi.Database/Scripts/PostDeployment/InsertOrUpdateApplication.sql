@@ -17,6 +17,10 @@ INSERT #Application VALUES (1, 'Employer Apprenticeship Service', 'das-employera
 INSERT #Application VALUES (2, 'Employer Apprenticeship Service (Legacy)', 'das-employeraccounts-web-legacy')
 INSERT #Application VALUES (3, 'Provider Apprenticeship Service', 'das-providerapprenticeshipsservice-web')
 INSERT #Application VALUES (4, 'Provider Apprenticeship Service (Legacy)', 'das-providerapprenticeshipsservice-web-legacy')
+INSERT #Application VALUES (5, 'Employer Apprenticeship Service - Levy', 'das-employeraccounts-web-levy')
+INSERT #Application VALUES (6, 'Employer Apprenticeship Service - Levy (Legacy)', 'das-employeraccounts-web-levy-legacy')
+INSERT #Application VALUES (7, 'Employer Apprenticeship Service - NonLevy', 'das-employeraccounts-web-nonlevy')
+INSERT #Application VALUES (8, 'Employer Apprenticeship Service - NonLevy (Legacy)', 'das-employeraccounts-web-nonlevy-legacy')
 
 SET IDENTITY_INSERT [dbo].[Application] ON 
 
