@@ -27,4 +27,10 @@ WHEN NOT MATCHED BY TARGET
     THEN INSERT ([Id], [Value])
          VALUES ([Source].[Id], [Source].[Value]);
 
+DELETE FROM [dbo].[ContentType]
+WHERE [Id] NOT IN (SELECT [Id] FROM #ContentType);
+
+-- Drop the temporary table
+DROP TABLE #ContentType;
+
 SET IDENTITY_INSERT [dbo].[ContentType] OFF
