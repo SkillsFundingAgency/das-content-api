@@ -14,15 +14,12 @@ CREATE TABLE #ApplicationContent(
 ) 
 
 INSERT #ApplicationContent VALUES (1, 1, 1)
-INSERT #ApplicationContent VALUES (2, 2, 2)
+INSERT #ApplicationContent VALUES (2, 1, 2)
 INSERT #ApplicationContent VALUES (3, 3, 3)
 INSERT #ApplicationContent VALUES (4, 4, 4)
 INSERT #ApplicationContent VALUES (5, 5, 1)
-INSERT #ApplicationContent VALUES (6, 6, 2)
+INSERT #ApplicationContent VALUES (6, 5, 2)
 INSERT #ApplicationContent VALUES (7, 7, 3)
-INSERT #ApplicationContent VALUES (8, 8, 4)
-INSERT #ApplicationContent VALUES (9, 9, 1)
-INSERT #ApplicationContent VALUES (10, 10, 1)
 
 SET IDENTITY_INSERT [dbo].[ApplicationContent] ON 
 
@@ -36,5 +33,11 @@ WHEN MATCHED
 WHEN NOT MATCHED BY TARGET 
     THEN INSERT ([Id], [ContentId], [ApplicationId])
          VALUES ([Source].[Id], [Source].[ContentId], [Source].[ApplicationId]);
+
+DELETE FROM [dbo].[ApplicationContent]
+WHERE [Id] NOT IN (SELECT [Id] FROM #ApplicationContent);
+
+-- Drop the temporary table
+DROP TABLE #ApplicationContent;
 
 SET IDENTITY_INSERT [dbo].[ApplicationContent] OFF

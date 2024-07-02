@@ -62,8 +62,8 @@
     <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Scripts\Archive\50PercentTransfer_Banner_2024.sql" />
     <None Include="Scripts\Archive\NAW_Banner_2024.sql" />
-    <None Include="Scripts\PostDeployment\50PercentTransfer_Banner_2024.sql" />
     <Build Include="Tables\Content.sql" />
     <Build Include="Tables\Application.sql" />
     <Build Include="Tables\ContentType.sql" />
@@ -74,6 +74,7 @@
     <None Include="Scripts\Archive\UpdateCovid19BannerWithEmployerIncentives.sql" />
     <None Include="Scripts\Archive\UpdateCovid19BannerWithEmployerIncentives_2.sql" />
     <None Include="Scripts\Archive\UpdateCovid19BannerWithEmployerIncentives_3.sql" />
+    <None Include="Scripts\PostDeployment\InsertCovidSection.sql" />
     <None Include="Scripts\PostDeployment\InsertOrUpdateApplication.sql" />
     <None Include="Scripts\PostDeployment\InsertOrUpdateContentType.sql" />
     <None Include="Scripts\PostDeployment\InsertOrUpdateApplicationContent.sql" />
@@ -87,7 +88,6 @@
     <None Include="Scripts\Archive\UpdateCovid19BannerWithApprenticeEmail_2.sql" />
     <None Include="Scripts\Archive\InsertApplications.sql" />
     <None Include="Scripts\Archive\InsertContentTypes.sql" />
-    <None Include="Scripts\Archive\InsertCovidSection.sql" />
     <None Include="Scripts\Archive\InsertCovidSectionPAS.sql" />
     <None Include="Scripts\PostDeployment\DeleteApplicationContent.sql" />
     <None Include="Scripts\Archive\NAW_Banner_2023.sql" />
