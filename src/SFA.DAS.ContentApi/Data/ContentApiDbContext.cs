@@ -1,5 +1,5 @@
-﻿using System.Data.SqlClient;
-using Microsoft.Azure.Services.AppAuthentication;
+﻿using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using SFA.DAS.ContentApi.Configuration;
 using SFA.DAS.ContentApi.Models;

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace SFA.DAS.ContentApi.Data;
+namespace SFA.DAS.ContentApi.Data.Configuration;
 
 public class ApplicationConfiguration : IEntityTypeConfiguration<Models.Application>
 {

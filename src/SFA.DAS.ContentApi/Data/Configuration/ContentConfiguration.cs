@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SFA.DAS.ContentApi.Models;
 
-namespace SFA.DAS.ContentApi.Data;
+namespace SFA.DAS.ContentApi.Data.Configuration;
 
 public class ContentConfiguration : IEntityTypeConfiguration<Content>
 {
