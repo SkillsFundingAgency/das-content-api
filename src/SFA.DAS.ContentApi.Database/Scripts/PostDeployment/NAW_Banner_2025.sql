@@ -1,16 +1,11 @@
-﻿SET
-NOCOUNT ON;
+﻿SET NOCOUNT ON;
 
-PRINT
-'Update NAW banner entry';
+PRINT 'Update NAW banner entry';
 
-DECLARE
-@startDate      DATETIME = '2025-01-09';
-DECLARE
-@endDate        DATETIME = '2025-02-16';
+DECLARE @startDate      DATETIME = '2025-01-09';
+DECLARE @endDate        DATETIME = '2025-02-16';
 -- EAS - new govuk design styling which is shown on CDN views
-DECLARE
-@bannerContent  VARCHAR(MAX) = 
+DECLARE @bannerContent  VARCHAR(MAX) = 
         N'<div class="govuk-grid-row">
                 <div class="govuk-grid-column-two-thirds">
                     <div class="govuk-notification-banner" role="region"
@@ -34,22 +29,18 @@ BEGIN TRY
 
 IF NOT EXISTS(SELECT ID FROM [dbo].[Content] WHERE Id = 1)
 BEGIN
-	    SET
-IDENTITY_INSERT [dbo].[Content] ON
-		
-	    INSERT INTO [dbo].[Content] ([Id], [ContentTypeId], [Data], [StartDate], [EndDate])
-SELECT 1,
-       1,
-       @bannerContent,
-       @startDate,
-       @endDate SET IDENTITY_INSERT [dbo].[Content] OFF
+	    SET IDENTITY_INSERT [dbo].[Content] ON
+		INSERT INTO [dbo].[Content] ([Id], [ContentTypeId], [Data], [StartDate], [EndDate])
+        SELECT  1,
+                1,
+                @bannerContent,
+                @startDate,
+                @endDate SET IDENTITY_INSERT [dbo].[Content] OFF
 
 
-SET IDENTITY_INSERT [dbo].[ApplicationContent]
-ON
+SET IDENTITY_INSERT [dbo].[ApplicationContent] ON
 
-INSERT
-INTO [dbo].[ApplicationContent] ([Id], [ApplicationId], [ContentId])
+INSERT INTO [dbo].[ApplicationContent] ([Id], [ApplicationId], [ContentId])
 SELECT 1,
        1,
        1 SET IDENTITY_INSERT [dbo].[ApplicationContent] OFF
@@ -58,9 +49,9 @@ SELECT 1,
 END
 ELSE
 BEGIN
-UPDATE [dbo].[Content]
-SET [Data]=@bannerContent, Active = 1, StartDate = @startDate, EndDate = @endDate
-WHERE [Id] = 1
+    UPDATE [dbo].[Content]
+    SET [Data]=@bannerContent, Active = 1, StartDate = @startDate, EndDate = @endDate
+    WHERE [Id] = 1
 END
 
 COMMIT TRAN;
@@ -69,10 +60,8 @@ END TRY
 BEGIN CATCH
 
 PRINT Error_message();
-	PRINT
-'NAW entry update NOT updated see above error';
-	PRINT
-'Rolling back transaction';
+PRINT 'NAW entry update NOT updated see above error';
+PRINT 'Rolling back transaction';
 
 ROLLBACK TRAN;
 
