@@ -8,14 +8,16 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddDasDistributedMemoryCache(this IServiceCollection services, IConfiguration configuration, bool isDevelopment)
     {
-        var redisConnectionString = configuration.GetSection(ContentApiConfigurationKeys.ContentApi).Get<ContentApiSettings>().RedisConnectionString;
-
         if (isDevelopment)
         {
             services.AddDistributedMemoryCache();
         }
         else
         {
+            var redisConnectionString = configuration.GetSection(ContentApiConfigurationKeys.ContentApi)
+                .Get<ContentApiSettings>()!
+                .RedisConnectionString;
+
             services.AddStackExchangeRedisCache(o => o.Configuration = redisConnectionString);
         }
 

@@ -23,12 +23,6 @@
         "keyVaultCertificateName": {
             "type": "string"
         },
-        "loggingRedisConnectionString": {
-            "type": "securestring"
-        },
-        "loggingRedisKey": {
-            "type": "string"
-        },
         "tags": {
             "type": "object"
         },
@@ -198,18 +192,6 @@
                             {
                               "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
                               "value": "[reference(concat(variables('apiAppServiceName'), '-application-insights-', parameters('utcValue'))).outputs.ConnectionString.value]"
-                            },
-                            {
-                                "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                                "value": "[reference(concat(variables('apiAppServiceName'), '-application-insights-', parameters('utcValue'))).outputs.InstrumentationKey.value]"
-                            },
-                            {
-                              "name": "LoggingRedisConnectionString",
-                              "value": "[parameters('loggingRedisConnectionString')]"
-                            },
-                            {
-                              "name": "LoggingRedisKey",
-                              "value": "[parameters('loggingRedisKey')]"
                             }
                           ]
                         }

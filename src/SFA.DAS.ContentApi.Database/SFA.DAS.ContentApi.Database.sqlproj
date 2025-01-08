@@ -60,6 +60,8 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Scripts" />
+    <Folder Include="Scripts\Archive\" />
+    <Folder Include="Scripts\PostDeployment\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Archive\50PercentTransfer_Banner_2024.sql" />
@@ -93,6 +95,7 @@
     <None Include="Scripts\Archive\NAW_Banner_2023.sql" />
     <None Include="Scripts\Archive\R14Banner.sql" />
     <None Include="Scripts\Archive\EmployerServiceDowntime.sql" />
+    <None Include="Scripts\PostDeployment\NAW_Banner_2025.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\PostDeployment\PostDeployment.sql" />

@@ -33,10 +33,10 @@ public class GetTests
             ApplicationId = applicationId
         };
 
-        var result = await controller.Get(query, new CancellationToken());
+        var result = await controller.Get(query, CancellationToken.None);
 
         //assert
         result.Should().BeOfType<ContentResult>();
-        ((ContentResult) result).Content.Should().Be(content.Content);
+        ((ContentResult)result).Content.Should().Be(content.Content);
     }
 }

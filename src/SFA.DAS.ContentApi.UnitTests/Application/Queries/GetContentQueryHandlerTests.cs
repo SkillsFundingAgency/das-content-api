@@ -31,7 +31,7 @@ public class GetContentQueryHandlerTests
         };
 
         //act
-        var result = await handler.Handle(query, new CancellationToken());
+        var result = await handler.Handle(query, CancellationToken.None);
 
         //assert
         result.Should().NotBeNull();
@@ -57,7 +57,7 @@ public class GetContentQueryHandlerTests
         };
 
         //act
-        var result = await handler.Handle(query, new CancellationToken());
+        var result = await handler.Handle(query, CancellationToken.None);
 
         //assert
         result.Should().NotBeNull();
@@ -85,7 +85,7 @@ public class GetContentQueryHandlerTests
         };
 
         //act
-        var result = await handler.Handle(query, new CancellationToken());
+        var result = await handler.Handle(query, CancellationToken.None);
 
         //assert
         result.Should().NotBeNull();
@@ -112,7 +112,7 @@ public class GetContentQueryHandlerTests
         };
 
         //act
-        var result = await handler.Handle(query, new CancellationToken());
+        var result = await handler.Handle(query, CancellationToken.None);
 
         //assert
         result.Should().NotBeNull();
@@ -139,7 +139,7 @@ public class GetContentQueryHandlerTests
         };
 
         //act
-        var result = await handler.Handle(query, new CancellationToken());
+        var result = await handler.Handle(query, CancellationToken.None);
 
         //assert
         result.Should().NotBeNull();
@@ -167,7 +167,7 @@ public class GetContentQueryHandlerTests
         };
 
         //act
-        var result = await handler.Handle(query, new CancellationToken());
+        var result = await handler.Handle(query, CancellationToken.None);
 
         //assert
         result.Should().NotBeNull();
@@ -197,7 +197,7 @@ public class GetContentQueryHandlerTests
         };
 
         //act
-        var result = await handler.Handle(query, new CancellationToken());
+        var result = await handler.Handle(query, CancellationToken.None);
 
         //assert
         result.Should().NotBeNull();
@@ -227,7 +227,7 @@ public class GetContentQueryHandlerTests
         };
 
         //act
-        var result = await handler.Handle(query, new CancellationToken());
+        var result = await handler.Handle(query, CancellationToken.None);
 
         //assert
         result.Should().NotBeNull();
