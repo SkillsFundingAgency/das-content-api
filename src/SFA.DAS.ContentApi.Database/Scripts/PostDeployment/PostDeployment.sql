@@ -9,6 +9,6 @@
 :r .\InsertOrUpdateContentType.sql
 :r .\InsertOrUpdateContent.sql
 :r .\InsertOrUpdateApplicationContent.sql
-:r .\NAW_Banner_2025.sql
+:r .\EI_Closing_Banner_2025.sql
 
 COMMIT TRANSACTION
