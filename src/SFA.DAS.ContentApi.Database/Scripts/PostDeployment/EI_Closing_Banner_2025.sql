@@ -1,9 +1,9 @@
 ﻿SET NOCOUNT ON;
 
-PRINT 'Update NAW banner entry';
+PRINT 'Update EI Closing banner entry';
 
-DECLARE @startDate      DATETIME = '2025-01-09';
-DECLARE @endDate        DATETIME = '2025-02-16';
+DECLARE @startDate      DATETIME = '2025-03-10';
+DECLARE @endDate        DATETIME = '2025-04-30';
 -- EAS - new govuk design styling which is shown on CDN views
 DECLARE @bannerContent  VARCHAR(MAX) = 
         N'<div class="govuk-grid-row">
@@ -11,12 +11,13 @@ DECLARE @bannerContent  VARCHAR(MAX) =
                     <div class="govuk-notification-banner" role="region"
                         aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
                         <div class="govuk-notification-banner__header">
-                            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Important notice</h2>
+                            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Important</h2>
                         </div>
                         <div class="govuk-notification-banner__content">
-                            <p class="govuk-notification-banner__heading">National Apprenticeship Week</p>
-                            <p class="govuk-body">National Apprenticeship Week 2025 will run from Monday 10 to Sunday 16 February – find out how to get involved and download the toolkit at
-                            <a href="https://naw.appawards.co.uk/" target="_blank">National Apprenticeship Week</a>.</p>
+                            <p class="govuk-notification-banner__heading">
+                            Your hire a new apprentice payments section will be removed after <span class="das-no-wrap">31 March 2025.</span>
+			                Applications for these payments closed in 2022.                            
+                            </p>                            
                         </div>
                     </div>
                 </div>
@@ -45,7 +46,7 @@ SELECT 1,
        1,
        1 SET IDENTITY_INSERT [dbo].[ApplicationContent] OFF
 
-		PRINT 'NAW 2025 banner entry added';
+		PRINT 'EI Closing 2025 banner entry added';
 END
 ELSE
 BEGIN
@@ -60,7 +61,7 @@ END TRY
 BEGIN CATCH
 
 PRINT Error_message();
-PRINT 'NAW entry update NOT updated see above error';
+PRINT 'EI Closing entry update NOT updated see above error';
 PRINT 'Rolling back transaction';
 
 ROLLBACK TRAN;
