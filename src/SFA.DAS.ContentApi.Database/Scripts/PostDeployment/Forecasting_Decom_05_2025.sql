@@ -2,7 +2,7 @@ SET NOCOUNT ON;
 
 PRINT 'Update Forecasting decommission banner';
 
-DECLARE @bannerContent  VARCHAR(MAX) = 
+DECLARE @forecastingBannerContent  VARCHAR(MAX) = 
 N'<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
     <div class="govuk-notification-banner__header">
         <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Important</h2>
@@ -20,14 +20,14 @@ BEGIN TRY
     BEGIN
         SET IDENTITY_INSERT [dbo].[Content] ON
         INSERT INTO [dbo].[Content] ([Id], [ContentTypeId], [Data])
-        SELECT 2, 1, @bannerContent
+        SELECT 2, 1, @forecastingBannerContent
         SET IDENTITY_INSERT [dbo].[Content] OFF
         PRINT 'EAS Forecasting decommission banner entry added';
     END
     ELSE
     BEGIN
         UPDATE [dbo].[Content]
-        SET [Data]=@bannerContent, Active = 1, StartDate = NULL, EndDate = NULL
+        SET [Data]=@forecastingBannerContent, Active = 1, StartDate = NULL, EndDate = NULL
         WHERE [Id] = 2
         PRINT 'EAS Forecasting decommission banner entry updated';
     END
