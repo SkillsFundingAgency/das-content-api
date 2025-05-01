@@ -37,7 +37,7 @@ BEGIN TRY
     BEGIN
         SET IDENTITY_INSERT [dbo].[ApplicationContent] ON
         INSERT INTO [dbo].[ApplicationContent] ([Id], [ApplicationId], [ContentId])
-        SELECT 2, 5, 2
+        SELECT 8, 5, 2
         SET IDENTITY_INSERT [dbo].[ApplicationContent] OFF
         PRINT 'EAS Forecasting decommission banner linked to Employer Finance - Levy application';
     END
