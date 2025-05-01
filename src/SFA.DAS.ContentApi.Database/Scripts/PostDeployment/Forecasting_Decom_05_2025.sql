@@ -16,11 +16,11 @@ N'<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-no
 BEGIN TRAN;
 
 BEGIN TRY
-    IF NOT EXISTS(SELECT ID FROM [dbo].[Content] WHERE Id = 1)
+    IF NOT EXISTS(SELECT ID FROM [dbo].[Content] WHERE Id = 2)
     BEGIN
         SET IDENTITY_INSERT [dbo].[Content] ON
         INSERT INTO [dbo].[Content] ([Id], [ContentTypeId], [Data])
-        SELECT 1, 1, @bannerContent
+        SELECT 2, 1, @bannerContent
         SET IDENTITY_INSERT [dbo].[Content] OFF
         PRINT 'EAS Forecasting decommission banner entry added';
     END
@@ -28,9 +28,20 @@ BEGIN TRY
     BEGIN
         UPDATE [dbo].[Content]
         SET [Data]=@bannerContent, Active = 1, StartDate = NULL, EndDate = NULL
-        WHERE [Id] = 1
+        WHERE [Id] = 2
         PRINT 'EAS Forecasting decommission banner entry updated';
     END
+
+    -- Link the banner to the Employer Finance - Levy application only
+    IF NOT EXISTS(SELECT 1 FROM [dbo].[ApplicationContent] WHERE [ApplicationId] = 5 AND [ContentId] = 2)
+    BEGIN
+        SET IDENTITY_INSERT [dbo].[ApplicationContent] ON
+        INSERT INTO [dbo].[ApplicationContent] ([Id], [ApplicationId], [ContentId])
+        SELECT 2, 5, 2
+        SET IDENTITY_INSERT [dbo].[ApplicationContent] OFF
+        PRINT 'EAS Forecasting decommission banner linked to Employer Finance - Levy application';
+    END
+
     COMMIT TRAN;
 END TRY
 BEGIN CATCH
