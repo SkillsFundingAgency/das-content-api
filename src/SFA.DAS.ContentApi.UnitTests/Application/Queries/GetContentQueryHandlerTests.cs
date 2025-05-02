@@ -234,6 +234,32 @@ public class GetContentQueryHandlerTests
         result.Content.Should().Be(htmlData);
     }
 
+    [Test, ContentAutoData]
+    public async Task Handle_ShouldReturnEASBannerContent_ForEASApplicationAndBannerType(
+        ContentApiDbContext setupContext,
+        GetContentQueryHandler handler
+    )
+    {
+        // Arrange
+        const string type = "banner";
+        const string applicationIdentity = "das-employeraccounts-web-levy";
+        const string expectedHtml = "<div class=\"govuk-notification-banner\" role=\"region\" aria-labelledby=\"govuk-notification-banner-title\" data-module=\"govuk-notification-banner\">\n    <div class=\"govuk-notification-banner__header\">\n        <h2 class=\"govuk-notification-banner__title\" id=\"govuk-notification-banner-title\">Important</h2>\n    </div>\n    <div class=\"govuk-notification-banner__content\">\n        <p class=\"govuk-notification-banner__heading\">Your Finance section is changing</p>\n        <p class=\"govuk-body\">From 31 May 2025 you will no longer see the funding projection page and other features in the Finance section of your employer account. <a href=\"https://example.com/faq\" target=\"_blank\">Find out what's changing on our FAQ page.</a></p>\n    </div>\n</div>";
+        await SetupApplicationContent(setupContext, applicationIdentity, type, isActive: true, expectedHtml, contentId: 1);
+
+        var query = new GetContentQuery
+        {
+            Type = type,
+            ApplicationId = applicationIdentity
+        };
+
+        // Act
+        var result = await handler.Handle(query, CancellationToken.None);
+
+        // Assert
+        result.Should().NotBeNull();
+        result.Content.Should().Be(expectedHtml);
+    }
+
     private static async Task SetupAdditionalContentForApplication(ContentApiDbContext setupContext, string applicationIdentity, long contentId, string htmlData)
     {
         var existingApplication = await setupContext.Application.SingleOrDefaultAsync(a => a.Identity.Equals(applicationIdentity.ToLowerInvariant()));
