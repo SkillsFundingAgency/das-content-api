@@ -18,7 +18,8 @@ BEGIN TRY
                                      </div>
                                      <div class="govuk-notification-banner__content">
                                          <h1 class="govuk-notification-banner__heading">National Apprenticeship Week 2026</h1>
-                                         <p class="govuk-body">National Apprenticeship Week is 9 - 15 February 2026. Get involved and download the toolkit from the <a href="https://naw.appawards.co.uk/" target="_blank" rel="noreferrer">National Apprenticeship Week</a> website.</p>
+                                         <p class="govuk-body">National Apprenticeship Week is 9 - 15 February 2026.</p>
+                                         <p class="govuk-body">Get involved and download the toolkit from the <a href="https://naw.appawards.co.uk/" class="govuk-link" target="_blank" rel="noreferrer">National Apprenticeship Week website.</a></p>
                                      </div>
                                  </div>','2026-01-09','2026-02-16'
 		SET IDENTITY_INSERT [dbo].[Content] OFF
@@ -38,7 +39,8 @@ BEGIN TRY
             </div>
             <div class="govuk-notification-banner__content">
                 <h1 class="govuk-notification-banner__heading">National Apprenticeship Week 2026</h1>
-                <p class="govuk-body">National Apprenticeship Week is 9 - 15 February 2026. Get involved and download the toolkit from the <a href="https://naw.appawards.co.uk/" target="_blank" rel="noreferrer">National Apprenticeship Week</a> website.</p>
+                <p class="govuk-body">National Apprenticeship Week is 9 - 15 February 2026.</p>
+                <p class="govuk-body">Get involved and download the toolkit from the <a href="https://naw.appawards.co.uk/" class="govuk-link" target="_blank" rel="noreferrer">National Apprenticeship Week website.</a></p>
             </div>
         </div>',Active = 1, StartDate = '2026-01-09', EndDate = '2026-02-16'
 	WHERE [Id] = 1 
