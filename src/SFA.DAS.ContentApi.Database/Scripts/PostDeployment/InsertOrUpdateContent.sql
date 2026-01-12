@@ -1,4 +1,4 @@
-﻿/*
+/*
 	Insert or Update each of the [Content] values.
 
 	NOTES:
@@ -53,7 +53,7 @@ INSERT #Content VALUES (5, 2, '<hr class="govuk-section-break govuk-section-brea
 <section class="govuk-!-margin-bottom-8">
     <h2 class="govuk-heading-l govuk-!-margin-bottom-2">Coronavirus (COVID-19)</h2>
     <p>To find out how we can support you, including changes we’re making to help your apprentices continue learning, <a href="https://www.gov.uk/government/publications/coronavirus-covid-19-apprenticeship-programme-response" target="_blank" class="govuk-link">read our updated guidance</a>.</p>
-</section>', NULL, NULL, 1)
+</section>', NULL, NULL, 0)
 
 INSERT #Content VALUES (6, 2, '<section class="dashboard-section">
     <div class="grid-row">
@@ -62,7 +62,7 @@ INSERT #Content VALUES (6, 2, '<section class="dashboard-section">
         </div>
     </div>
     <p>To find out how we can support you, including changes we’re making to help your apprentices continue learning, <a href="https://www.gov.uk/government/publications/coronavirus-covid-19-apprenticeship-programme-response" target="_blank">read our updated guidance</a>.</p>
-</section>', NULL, NULL, 1)
+</section>', NULL, NULL, 0)
 
 INSERT #Content VALUES (7, 2, '<div class="grid-row">
     <div class="column-two-thirds">
@@ -70,7 +70,7 @@ INSERT #Content VALUES (7, 2, '<div class="grid-row">
         <h3 class="heading-medium">Coronavirus (COVID-19)</h3>
         <p>To find out how we can support you, including changes we''re making to help your apprentices continue learning, <a href="https://www.gov.uk/government/publications/coronavirus-covid-19-apprenticeship-programme-response?es_c=7B651DDC6B6986102E8BBB7918A20DDF&es_cl=53BFD9FD1669BCDAEBD12D5CDF1D9AB8&es_id=9d%c2%a3o3C" target="_blank">read our updated guidance</a>.</p>
     </div>
-</div>', NULL, NULL, 1)
+</div>', NULL, NULL, 0)
 
 SET IDENTITY_INSERT [dbo].[Content] ON 
 
