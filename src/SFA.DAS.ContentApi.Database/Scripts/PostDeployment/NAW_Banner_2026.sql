@@ -23,10 +23,6 @@ BEGIN TRY
                                      </div>
                                  </div>','2026-01-30','2026-02-16'
 		SET IDENTITY_INSERT [dbo].[Content] OFF
-		
-		SET IDENTITY_INSERT [dbo].[ApplicationContent] ON
-		INSERT INTO [dbo].[ApplicationContent] ([Id], [ApplicationId], [ContentId]) SELECT 1, 1, 1
-		SET IDENTITY_INSERT [dbo].[ApplicationContent] OFF
 
 		PRINT 'NAW 2026 banner entry added';
 	END
