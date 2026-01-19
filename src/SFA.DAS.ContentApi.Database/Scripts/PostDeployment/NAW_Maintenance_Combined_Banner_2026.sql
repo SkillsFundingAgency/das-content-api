@@ -34,10 +34,6 @@ BEGIN TRY
                                      </div>
                                  </div>','2026-01-19','2026-01-30'
 		SET IDENTITY_INSERT [dbo].[Content] OFF
-		
-		SET IDENTITY_INSERT [dbo].[ApplicationContent] ON
-		INSERT INTO [dbo].[ApplicationContent] ([Id], [ApplicationId], [ContentId]) SELECT 2, 1, 2
-		SET IDENTITY_INSERT [dbo].[ApplicationContent] OFF
 
 		PRINT 'Combined NAW and Maintenance 2026 banner entry added';
 	END
