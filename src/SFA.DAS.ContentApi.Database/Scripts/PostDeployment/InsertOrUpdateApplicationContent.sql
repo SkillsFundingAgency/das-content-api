@@ -1,4 +1,4 @@
-﻿/*
+/*
 	Insert or Update each of the [ApplicationContent] values.
 
 	NOTES:
@@ -20,6 +20,7 @@ INSERT #ApplicationContent VALUES (4, 4, 4)
 INSERT #ApplicationContent VALUES (5, 5, 1)
 INSERT #ApplicationContent VALUES (6, 5, 2)
 INSERT #ApplicationContent VALUES (7, 7, 3)
+INSERT #ApplicationContent VALUES (8, 2, 1)
 
 SET IDENTITY_INSERT [dbo].[ApplicationContent] ON 
 
