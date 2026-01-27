@@ -29,7 +29,7 @@ BEGIN TRY
                                      </div>
                                      <div class="govuk-notification-banner__content">
                                          <h1 class="govuk-notification-banner__heading">Planned maintenance downtime</h1>
-                                         <p class="govuk-body">You will not be able to access your employer account on <strong>30 January 2026</strong>, from <strong>7am to 9pm</strong>.</p>
+                                         <p class="govuk-body">You will not be able to access your employer account on <strong>30 January 2026</strong>, from <strong>7am to 9am</strong>.</p>
                                          <p class="govuk-body">This is due to planned maintenance. We''re sorry for any inconvenience.</p>
                                      </div>
                                  </div>','2026-01-19','2026-01-30'
@@ -56,7 +56,7 @@ BEGIN TRY
             </div>
             <div class="govuk-notification-banner__content">
                 <h1 class="govuk-notification-banner__heading">Planned maintenance downtime</h1>
-                <p class="govuk-body">You will not be able to access your employer account on <strong>30 January 2026</strong>, from <strong>7am to 9pm</strong>.</p>
+                <p class="govuk-body">You will not be able to access your employer account on <strong>30 January 2026</strong>, from <strong>7am to 9am</strong>.</p>
                 <p class="govuk-body">This is due to planned maintenance. We''re sorry for any inconvenience.</p>
             </div>
         </div>',Active = 1, StartDate = '2026-01-19', EndDate = '2026-01-30'
