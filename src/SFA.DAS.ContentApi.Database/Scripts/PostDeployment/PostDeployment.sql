@@ -11,5 +11,6 @@ BEGIN TRANSACTION
 :r .\InsertOrUpdateApplicationContent.sql
 :r .\NAW_Maintenance_Combined_Banner_2026.sql
 :r .\NAW_Banner_2026.sql
+:r .\NASA_Banner_2026.sql
 
 COMMIT TRANSACTION
