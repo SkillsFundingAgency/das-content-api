@@ -72,6 +72,17 @@ INSERT #Content VALUES (7, 2, '<div class="grid-row">
     </div>
 </div>', NULL, NULL, 0)
 
+INSERT #Content VALUES (8, 1, '<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Important</h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading"></p>
+        <p class="govuk-body"></p>
+    </div>
+</div>', NULL, NULL, 0)
+
+
 SET IDENTITY_INSERT [dbo].[Content] ON 
 
 MERGE [Content] [Target] USING #Content [Source]

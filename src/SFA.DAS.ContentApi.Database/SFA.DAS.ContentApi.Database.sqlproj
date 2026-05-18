@@ -76,7 +76,6 @@
     <None Include="Scripts\Archive\UpdateCovid19BannerWithEmployerIncentives.sql" />
     <None Include="Scripts\Archive\UpdateCovid19BannerWithEmployerIncentives_2.sql" />
     <None Include="Scripts\Archive\UpdateCovid19BannerWithEmployerIncentives_3.sql" />
-    <None Include="Scripts\PostDeployment\InsertCovidSection.sql" />
     <None Include="Scripts\PostDeployment\InsertOrUpdateApplication.sql" />
     <None Include="Scripts\PostDeployment\InsertOrUpdateContentType.sql" />
     <None Include="Scripts\PostDeployment\InsertOrUpdateApplicationContent.sql" />
@@ -95,10 +94,12 @@
     <None Include="Scripts\Archive\NAW_Banner_2023.sql" />
     <None Include="Scripts\Archive\R14Banner.sql" />
     <None Include="Scripts\Archive\EmployerServiceDowntime.sql" />
-    <None Include="Scripts\PostDeployment\NAW_Banner_2025.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\PostDeployment\PostDeployment.sql" />
     <None Include="Scripts\PostDeployment\DeleteApplication.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\PostDeployment\NASA_Banner_2026.sql" />
   </ItemGroup>
 </Project>
