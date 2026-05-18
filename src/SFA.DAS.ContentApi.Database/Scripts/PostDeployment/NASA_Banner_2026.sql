@@ -16,7 +16,6 @@ DECLARE @bannerContent  VARCHAR(MAX) =
                     The National Apprenticeship and Skills Awards 2026 are open for applications until 22 May 2026. 
                     <a href="https://apprenticeshipandskillsawards.co.uk/" target="_blank" rel="noreferrer">Enter or make a nomination.</a>
                 </p>
-                <p class="govuk-body">Get involved and download the toolkit from the <a href="https://naw.appawards.co.uk/" class="govuk-link" target="_blank" rel="noreferrer">National Apprenticeship Week website.</a></p>
             </div>
         </div>';
 
