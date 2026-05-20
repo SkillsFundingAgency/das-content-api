@@ -3,7 +3,7 @@
 PRINT 'Update NASA banner entry';
 
 DECLARE @startDate      DATETIME = '2026-05-15';
-DECLARE @endDate        DATETIME = '2026-05-23';
+DECLARE @endDate        DATETIME = '2026-05-29';
 -- EAS - new govuk design styling which is shown on CDN views
 DECLARE @bannerContent  VARCHAR(MAX) = 
         N'<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
