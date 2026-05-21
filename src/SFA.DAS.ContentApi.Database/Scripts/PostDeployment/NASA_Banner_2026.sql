@@ -13,7 +13,7 @@ DECLARE @bannerContent  VARCHAR(MAX) =
             <div class="govuk-notification-banner__content">
                 <h1 class="govuk-notification-banner__heading">National Apprenticeship and Skills Awards 2026</h1>
                 <p class="govuk-body">
-                    The National Apprenticeship and Skills Awards 2026 are open for applications until 22 May 2026. 
+                    The National Apprenticeship and Skills Awards 2026 are open for applications until 28 May 2026. 
                     <a href="https://apprenticeshipandskillsawards.co.uk/" target="_blank" rel="noreferrer">Enter or make a nomination.</a>
                 </p>
             </div>
