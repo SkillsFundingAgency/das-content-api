@@ -24,6 +24,7 @@ INSERT #ApplicationContent VALUES (8, 2, 1)
 INSERT #ApplicationContent VALUES (9, 2, 2)
 INSERT #ApplicationContent VALUES (10, 8, 1)
 INSERT #ApplicationContent VALUES (11, 8, 2)
+INSERT #ApplicationContent VALUES (12, 9, 5)
 
 SET IDENTITY_INSERT [dbo].[ApplicationContent] ON 
 
