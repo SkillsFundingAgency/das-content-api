@@ -90,7 +90,7 @@ INSERT #Content VALUES (9, 1, '<div class="govuk-notification-banner" role="regi
         <p class="govuk-notification-banner__heading">Help improve the planning of your levy spend</p>
         <p class="govuk-body">Tell us what you think by <a href="https://dferesearch.fra1.qualtrics.com/jfe/form/SV_07lXN4zCMS6ZvyS" target="_blank" class="govuk-link govuk-link--no-visited-state">completing a short survey (opens in new tab).</a></p>
     </div>
-</div>', '2026-05-26', NULL, 1)
+</div>', NULL, NULL, 0)
 
 
 SET IDENTITY_INSERT [dbo].[Content] ON 
